@@ -1,0 +1,27 @@
+{
+  "name": "fabulist",
+  "version": "1.0.0",
+  "description": "A storytelling game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rami0141/Fabulist.git"
+  },
+  "author": "Maiyer Thao, Christina Zhang, Jerridd Speidel, Joe Semlak, Craig Christensen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rami0141/Fabulist/issues"
+  },
+  "homepage": "https://github.com/rami0141/Fabulist#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.37.0"
+  }
+}
