@@ -6,24 +6,36 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true
+      }
     }
   });
 
+  // It is unlikely that Fabulist gameplay will delete players
   Player.associate = function(models) {
-    // Associating Player with Story
-    // When an Author is deleted, also delete any associated Posts
+    // Creating a one-to-many relation, Player --> Turn
+    // When an Player is deleted, also delete any associated Turns
     Player.hasMany(models.Turn, {
       onDelete: "cascade"
     });
   };
 
+
   Player.associate = function(models){
-    Player.belongsTo(models.Game, {
+    // Creating a one-to-one relation, Player --> Story
+    Player.belongsTo(models.Story, {
       foreignKey: {
         allowNull: false
       }
     });
   };
+
+  Player.sync();
 
   return Player;
 };

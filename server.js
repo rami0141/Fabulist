@@ -36,10 +36,10 @@ app.use(bodyParser.json());
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Routes
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// require("./routes/html-routes.js")(app);
-// require("./routes/game-api-routes.js")(app);
-// require("./routes/player-api-routes.js")(app);
-// require("./routes/story-api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+require("./routes/story-api-routes.js")(app);
+require("./routes/player-api-routes.js")(app);
+require("./routes/story-api-routes.js")(app);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Start the server to begin listening
