@@ -13,6 +13,10 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isInt: true
       }
+    },
+    illustration: {
+      type: DataTypes.STRING.BINARY,
+      allowNull: true
     }
   });
 
