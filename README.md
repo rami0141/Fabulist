@@ -5,15 +5,22 @@
 
 
 ## Built With
+  - [Node.js](https://nodejs.org/en/download/)
+  - [express](https://www.npmjs.com/package/express)
+  - [express-handlebars](https://www.npmjs.com/package/express-handlebars)
+  - [body-parser](https://www.npmjs.com/package/express)
+  - [dotenv](https://www.npmjs.com/package/dotenv)
+  - [MySQL](https://www.mysql.com/downloads/)
+  - [Sequelize](https://www.npmjs.com/package/sequelize)
 
 
 ## Authors
 
-* Jerridd Speidel
-* Maiyer Thao
-* Craig Christensen
-* Joe Semlak
-* Cristina Zhang
+* [Jerridd Speidel](https://github.com/TowerGuy2909)
+* [Maiyer Thao](https://github.com/jaethao)
+* [Craig Christensen](https://github.com/ruffcorn33)
+* [Joe Semlak](https://github.com/semlak)
+* [Cristina Zhang](https://github.com/rami0141)
 
 
 
@@ -44,9 +51,9 @@ Users will need to add a file name '.env' to the project folder.
 
 1) Log in to MySQL Workbench.  From the home screen, create a new connection by clicking the + symbol beside 'MySQL Connections'.  Name the connection 'fabulist_db'.
 
-2) Click the new connection box to open it.  From the File menu, select 'Open SQL Script'.  Navigate to your project folder/db and select schema.sql.  Run the code to create the database and the tables.
+2) Click the new connection box to open it.  From the File menu, select 'Open SQL Script'.  Navigate to your project folder/db and select schema.sql.  Run the code to create the database.  
 
-3) Click File/Open SQL Script again, navigate to the project/db folder and select seeds.sql.  Run the code in seeds.sql to populate the table with seed data.
+<!-- 3) Click File/Open SQL Script again, navigate to the project/db folder and select seeds.sql.  Run the code in seeds.sql to populate the table with seed data. -->
 
 
 ## Copyright
