@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Turn.associate = function(models){
-    Turn.belongsTo(models.Game, {
+    Turn.belongsTo(models.Story, {
       foreignKey: {
         allowNull: false
       }
@@ -32,6 +32,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
+  Turn.sync();
 
   return Turn;
 };
