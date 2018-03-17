@@ -5,14 +5,15 @@ var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(module.filename);
 var env       = process.env.NODE_ENV || 'development';
-const mysql_pwd = process.env.MYSQL_PASSWORD;
 var config    = require(__dirname + '/../config/config.json')[env];
+const mysql_pwd = process.env.MYSQL_PASSWORD || config.password;
+const mysql_user = process.env.MYSQL_USERNAME || config.username;
 var db        = {};
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-  var sequelize = new Sequelize(config.database, config.username, mysql_pwd, config);
+  var sequelize = new Sequelize(config.database, mysql_user, mysql_pwd, config);
 }
 
 fs
