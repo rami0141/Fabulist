@@ -1,0 +1,24 @@
+nav {
+  padding-top: 2em;
+  padding-bottom: 1em;
+  background-color: #9a8c98;
+}
+
+#menu ul li a {
+  color: white;
+  padding-top: 1em;
+}
+
+#rule {
+  background-color: #4a4e69;
+  padding-top: 5em;
+  padding-bottom: 2em;
+}
+
+#rule-content {
+  color: #9a8c98;
+}
+
+#storiesMenu {
+  padding-top: 5em;
+}
