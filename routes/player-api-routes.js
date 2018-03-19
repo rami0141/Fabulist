@@ -12,26 +12,19 @@ module.exports = function(app) {
   // GET route for getting all of the players
   app.get("/api/players", function(req, res) {
     var query = {};
-    if (req.query.game_id) {
-      query.GameId = req.query.game_id;
-    }
-    // Including Game in a left outer join
     db.Player.findAll({
       where: query,
-      include: [db.Game]
     }).then(function(dbPlayer) {
       res.json(dbPlayer);
     });
   });
 
-  // Get rotue for retrieving a single Player - probably not needed
+  // Get route for retrieving a single Player - probably not needed
   app.get("/api/players/:id", function(req, res) {
-    // Including Game in a left outer join
     db.Player.findOne({
       where: {
         id: req.params.id
       },
-      include: [db.Game]
     }).then(function(dbPlayer) {
       res.json(dbPlayer);
     });
