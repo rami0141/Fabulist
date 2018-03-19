@@ -1,10 +1,33 @@
 $(document).ready(function() {
 
   //  See 15-Post-Game-Joins for examples of html handling code
+  // Getting jQuery references to the post game name, number of players, and form
+  var gameName = $("#game-name");
+  var totalPlayers = $("#numberOfPlayers");
+  
+  // Adding an event listener for when the form is submitted
+  $(document).on("submit", "game-form", startingFormSubmit);
 
   // Getting the intiial list of Games
   getGames();
 
+  // A function to handle what happens when the form is submitted to create a new Game
+  function startingFormSubmit(event) {
+    event.preventDefault();
+    // Don't do anything if the name fields hasn't been filled out
+    if (!gameName.val().trim() || !totalPlayers.val().trim()) {
+      return;
+    }
+    // Calling the upsertAuthor function and passing in the value of the name input
+    upsertGame ({
+      name: gameName
+        .val()
+        .trim(),
+      players: playersPlayers
+        .val()
+        .trim(),
+      };
+    }
 
   // A function for creating a Game. Calls getGames upon completion
   function upsertGame(GameData) {
@@ -44,53 +67,8 @@ $(document).ready(function() {
     alertDiv.text("You must create a Game before you can add a Player.");
     GameContainer.append(alertDiv);
   }
-  //------------------------------------------------------------------------------------------------------------
-  // Starting code that needs work - console.log everything
-  // Grabbing the game name and number of players
-  var name = "";
-  var players = 0;
 
-  $("#startSubmit").on("click", function() {
-    event.preventDefault();
-
-    name = $("#game-name").val().trim();
-    players = $("#one").val().trim();
-
-    console.log(name);
-    console.log(players);
-    randomThemes();
-  });
-
-  // Random Themes
-  // Will display theme in html
-  function randomThemes() {
-    var themes = ["Coco the Dog", "Nala the Cat", "Pepperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
-    var randomThemes = themes[Math.floor(Math.random() * themes.length)];
-    console.log(randomThemes);
-  }
+});
 
 
-  // Paragraph
-  // will display numberOfTurns as player turn
-  var numberOfTurns = 0;
-
-  $("#storySubmit").on("click", function() {
-    event.preventDefault();
-
-    if (numberOfTurns < players) {
-      var text = $("#story").val();
-      console.log(text);
-      numberOfTurns++
-      // update database
-    }
-    else {
-    // read the database and return the entire story
-    console.log("Game End");
-    }
-  });
-
-
-  // Resetting the game -- Play Again Option?
-
-}); 
-
+  
