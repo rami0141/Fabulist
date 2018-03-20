@@ -97,11 +97,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <!-- Modal content -->
 <div class="modal-content">
-    <div class="modal-header">
-    <h3>How would you like to play?</h3>
+    <div class="modal-header mb-3">
+    <h3 class>How would you like to play?</h3>
     <span class="close">&times;</span>
     </div>
         <div class="modal-body">
+            <div class="mb-3 form-group">
+                <label class="sr-only" for="inlineFormInputName">Name</label>
+                <input type="text" class="form-control input-lg" id="inlineFormInputName" placeholder="Story Name">
+            </div>
             <select class="custom-select custom-select-lg mb-3" >
                 <option selected>Writers</option>
                 <option value="1">One</option>
@@ -120,7 +124,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <option value="5">five</option>
                 <option value="6">six</option>
             </select>
+            <button type="submit" class="btn btn-primary  mb-3">Submit</button>
         </div>
+        
     </div>
 </div>
 
