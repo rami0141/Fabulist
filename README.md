@@ -59,9 +59,35 @@ Replace the question marks with your MySQL password and username (without these 
 
 1) Log in to MySQL Workbench.  From the home screen, create a new connection by clicking the + symbol beside 'MySQL Connections'.  Name the connection 'fabulist_db'.
 
-2) Click the new connection box to open it.  From the File menu, select 'Open SQL Script'.  Navigate to your project folder/db and select schema.sql.  Run the code to create the database.  
+2) Click the new connection box to open it.  From the File menu, select 'Open SQL Script'.  Navigate to your project folder/db and select schema.sql.  Run the code to create the database.
 
 <!-- 3) Click File/Open SQL Script again, navigate to the project/db folder and select seeds.sql.  Run the code in seeds.sql to populate the table with seed data. -->
+
+
+
+### Running Tests
+To run tests:
+```
+npm test
+```
+
+Note that right now the data that is inserted during tests is not removed. You can avoid messing up your main production and development database by switching to the test database (make sure to create 'database_test') before running tests.
+
+```
+# load test environment variable, which forces tests to use 'development_test' database. Make sure you have created it first.
+export NODE_ENV=test
+npm test
+```
+
+Setting the NODE_ENV variable like that is specific to each terminal, so you can run tests in one terminal using the database_test database, but have your development server running in another terminal agains the fabulist_db database. To swith the environment variable back:
+
+```
+export NODE_ENV=test
+# or just close terminal
+```
+
+
+Note that although karma is installed, we are having problems when trying to run tests with Karma that involve using the database connection, so the tests should be run manually (```npm test```).
 
 
 ## Copyright
