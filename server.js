@@ -46,7 +46,7 @@ require("./routes/story-api-routes.js")(app);
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-db.sequelize.sync({force: true}).then(function() {
+db.sequelize.sync({force: false}).then(function() {
 	app.listen(PORT, function() {
 	  console.log("Express server listening on PORT " + PORT);
 	});
