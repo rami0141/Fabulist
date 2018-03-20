@@ -1,174 +1,212 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgb(34,34,59); /* Black w/ opacity */
-}
+        /* The Modal (background) */
 
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #9a8c98;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #22223b;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgb(34, 34, 59);
+            /* Black w/ opacity */
+        }
 
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
+        /* Modal Content */
 
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
+        .modal-content {
+            position: relative;
+            background-color: #9a8c98;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #22223b;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
 
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+        /* Add Animation */
 
-.close:hover,
-.close:focus {
-    color: red;
-    text-decoration: none;
-    cursor: pointer;
-}
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
 
-.modal-header {
-    padding: 10px 16px;
-    background-color: #4a4e69;
-    color: #9a8c98;
-    border-color: #9a8c98
-}
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
 
-.modal-body {
-    padding: 2px 16px;
-}
+        /* The Close Button */
 
-.transparent-input {
-   background-color: #9a8c98;
-   border:white;
-   color: white;
-}
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-input::-webkit-input-placeholder { 
-    color: white  !important;
-}
+        .close:hover,
+        .close:focus {
+            color: red;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-</style>
+        .modal-header {
+            padding: 10px 16px;
+            background-color: #4a4e69;
+            color: #9a8c98;
+            border-color: #9a8c98
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .transparent-input {
+            background-color: #9a8c98;
+            border: white;
+            color: white;
+        }
+
+        input::-webkit-input-placeholder {
+            color: white !important;
+        }
+
+        .button-center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
+
 <body>
 
-    
 
 
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">New Game</button>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">New Game</button>
 
-<!-- Modal content -->
-<div class="modal-content">
-    <div class="modal-header mb-3">
-    <h3 class="font-weight-bold">Story Outline</h3>
-    <span class="close">&times;</span>
-    </div>
-        <div class="modal-body">
-            <div class="mb-3  form-group ">
-                
-                <label class="sr-only" for="inlineFormInputName">Name</label>
-                <input type="text" class="form-control transparent-input border border-white " id="inlineFormInputName" placeholder="Story Name">
+    <!-- The Modal -->
+    <div id="myModal" class="modal ">
+
+        <!-- Modal content -->
+        <div class="modal-content modal-dialog modal-sm ">
+            <div class="modal-header mb-3">
+                <h3 class="font-weight-bold">Story Outline</h3>
+                <span class="close">&times;</span>
             </div>
-            
-            <!--drop down fields-->
-            <select class="custom-select  mb-3 transparent-input border border-white" >
-                <option selected>Writers</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="4">four</option>
-                <option value="5">five</option>
-                <option value="6">six</option>
-            </select>
-            <select class="custom-select  mb-3 transparent-input border border-white">
-                <option selected>Turns</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="4">four</option>
-                <option value="5">five</option>
-                <option value="6">six</option>
-            </select>
-            <button type="button" name="button" class="btn btn-outline-danger btn-lg mb-3" id="playBtn">Ready to Write!</button>
+            <div class="modal-body ">
+                <div class="mb-3  form-group ">
+
+                    <label class="sr-only" for="inlineFormInputName">Name</label>
+                    <input type="text" class="form-control transparent-input border border-white " id="inlineFormInputName" placeholder="Story Name">
+                </div>
+
+                <!--drop down fields-->
+                <select class="custom-select  mb-3 transparent-input border border-white">
+                    <option selected>Writers</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">four</option>
+                    <option value="5">five</option>
+                    <option value="6">six</option>
+                </select>
+                <select class="custom-select  mb-3 transparent-input border border-white">
+                    <option selected>Turns</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">four</option>
+                    <option value="5">five</option>
+                    <option value="6">six</option>
+                </select>
+                <div class="form-row text-center">
+                    <div class="col-12">
+                        <button type="button" name="button" class="btn btn-outline-danger btn-lg mb-3  " id="playBtn">Ready!</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        
     </div>
-</div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('myModal');
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
+
 </html>
