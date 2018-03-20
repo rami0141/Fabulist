@@ -15,12 +15,12 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-  Story.associate = function(models) {
-    // Creating a one-many relation, Story --> Player
-    Story.hasMany(models.Player);
-  };
+  // Story.associate = function(models) {
+  //   // Creating a one-many relation, Story --> Player
+  //   // Story.hasMany(models.Player);
+  // };
 
-  Story.sync();
- 
+  // Story.sync();
+
   return Story;
 };

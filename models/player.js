@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-  Player.sync();
+  // Player.sync();
 
   return Player;
 };
