@@ -1,6 +1,6 @@
 USE fabulist_db;
 
-INSERT INTO stories (name, createdAt, updatedAt)
+INSERT INTO Stories (name, createdAt, updatedAt)
 VALUES
 ('Gangsters and Robots', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('Swindlers Of The North', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -8,27 +8,27 @@ VALUES
 
 -- SELECT * FROM stories;
 
-INSERT INTO players (name, email, createdAt, updatedAt)
+INSERT INTO Players (name, email, createdAt, updatedAt)
 values ('Pete', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Andy', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Allison', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Betty', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Ruth', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+       
+-- SELECT * FROM players;       
 
--- SELECT * FROM players;
+DROP TABLE IF EXISTS turns;
 
--- DROP TABLE IF EXISTS turns;
-
--- CREATE TABLE turns (
---   id INT NOT NULL AUTO_INCREMENT,
---   body VARCHAR(500) NOT NULL,
---   illustration binary(1) DEFAULT NULL,
---   StoryId INT DEFAULT NULL,
---   PlayerId INT DEFAULT NULL,
---   createdAt datetime DEFAULT NULL,
---   updatedAt datetime DEFAULT NULL,
---   PRIMARY KEY (id)
--- );
+CREATE TABLE turns (
+  id INT NOT NULL AUTO_INCREMENT,
+  body VARCHAR(500) NOT NULL,
+  illustration BINARY DEFAULT NULL,
+  StoryId INT DEFAULT NULL,
+  PlayerId INT DEFAULT NULL,
+  createdAt DATETIME DEFAULT NULL,
+  updatedAt DATETIME DEFAULT NULL,
+  PRIMARY KEY (id)
+);
 
 INSERT INTO turns (body, illustration, StoryId, PlayerId, createdAt, updatedAt)
 VALUES

@@ -39,7 +39,7 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes.js")(app);
 require("./routes/story-api-routes.js")(app);
 require("./routes/player-api-routes.js")(app);
-require("./routes/story-api-routes.js")(app);
+require("./routes/turn-api-routes.js")(app);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Sync sequelize Models and start the server to begin listening
