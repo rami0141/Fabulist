@@ -14,24 +14,24 @@ values ('Pete', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Allison', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Betty', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Ruth', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-       
--- SELECT * FROM players;       
 
-DROP TABLE IF EXISTS turns;
+-- SELECT * FROM players;
 
-CREATE TABLE turns (
-  id INT NOT NULL AUTO_INCREMENT,
-  body VARCHAR(500) NOT NULL,
-  illustration binary(1) DEFAULT NULL,
-  StoryId INT DEFAULT NULL,
-  PlayerId INT DEFAULT NULL,
-  createdAt datetime DEFAULT NULL,
-  updatedAt datetime DEFAULT NULL,
-  PRIMARY KEY (id)
-);
+-- DROP TABLE IF EXISTS turns;
+
+-- CREATE TABLE turns (
+--   id INT NOT NULL AUTO_INCREMENT,
+--   body VARCHAR(500) NOT NULL,
+--   illustration binary(1) DEFAULT NULL,
+--   StoryId INT DEFAULT NULL,
+--   PlayerId INT DEFAULT NULL,
+--   createdAt datetime DEFAULT NULL,
+--   updatedAt datetime DEFAULT NULL,
+--   PRIMARY KEY (id)
+-- );
 
 INSERT INTO turns (body, illustration, StoryId, PlayerId, createdAt, updatedAt)
-VALUES 
+VALUES
 ("In a galaxy far, far away.", null, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ("In a hole in the ground there lived a hobbit.", null, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ("And they lived happily ever after.", null, 1, 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
