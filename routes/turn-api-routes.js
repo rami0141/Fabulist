@@ -55,7 +55,7 @@ module.exports = function(app) {
     });
   });
 
-  // PUT route for updating posts - porbably not needed
+  // PUT route for updating posts - probably not needed
   app.put("/api/turns", function(req, res) {
     db.Turn.update(
       req.body,
