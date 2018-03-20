@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isEmail: true
       }
@@ -25,17 +25,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-
-  // Player.associate = function(models){
-  //   // Creating a one-to-one relation, Player --> Story
-  //   Player.belongsTo(models.Story, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
-
-  Player.sync();
+  // Player.sync();
 
   return Player;
 };
