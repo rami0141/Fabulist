@@ -11,6 +11,7 @@ const mysql_pwd = process.env.MYSQL_PASSWORD || config.password;
 const mysql_user = process.env.MYSQL_USERNAME || config.username;
 var db        = {};
 
+
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
