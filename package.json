@@ -7,7 +7,7 @@
     "mocha": "test"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --exit",
     "karma" : "karma start",
     "start": "node server.js"
   },

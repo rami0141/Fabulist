@@ -1,6 +1,6 @@
 USE fabulist_db;
 
-INSERT INTO stories (name, createdAt, updatedAt)
+INSERT INTO Stories (name, createdAt, updatedAt)
 VALUES
 ('Gangsters and Robots', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('Swindlers Of The North', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -8,7 +8,7 @@ VALUES
 
 -- SELECT * FROM stories;
 
-INSERT INTO players (name, email, createdAt, updatedAt)
+INSERT INTO Players (name, email, createdAt, updatedAt)
 values ('Pete', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Andy', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Allison', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
