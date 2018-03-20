@@ -42,8 +42,12 @@ require("./routes/player-api-routes.js")(app);
 require("./routes/turn-api-routes.js")(app);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Start the server to begin listening
+// Sync sequelize Models and start the server to begin listening
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-app.listen(PORT, function() {
-  console.log("Express server listening on PORT " + PORT);
-});
+
+
+db.sequelize.sync({force: false}).then(function() {
+	app.listen(PORT, function() {
+	  console.log("Express server listening on PORT " + PORT);
+	});
+})

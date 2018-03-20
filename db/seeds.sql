@@ -1,6 +1,6 @@
 USE fabulist_db;
 
-INSERT INTO stories (name, createdAt, updatedAt)
+INSERT INTO Stories (name, createdAt, updatedAt)
 VALUES
 ('Gangsters and Robots', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('Swindlers Of The North', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -8,7 +8,7 @@ VALUES
 
 -- SELECT * FROM stories;
 
-INSERT INTO players (name, email, createdAt, updatedAt)
+INSERT INTO Players (name, email, createdAt, updatedAt)
 values ('Pete', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Andy', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('Allison', null, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -31,7 +31,7 @@ CREATE TABLE turns (
 );
 
 INSERT INTO turns (body, illustration, StoryId, PlayerId, createdAt, updatedAt)
-VALUES 
+VALUES
 ("In a galaxy far, far away.", null, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ("In a hole in the ground there lived a hobbit.", null, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ("And they lived happily ever after.", null, 1, 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),

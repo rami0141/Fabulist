@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-  Turn.sync();
+  // Turn.sync();
 
   return Turn;
 };
