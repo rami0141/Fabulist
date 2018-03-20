@@ -26,16 +26,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(34,34,59); /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
     position: relative;
-    background-color: #fefefe;
+    background-color: #9a8c98;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
+    border: 1px solid #22223b;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
@@ -65,28 +65,37 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    padding: 10px 16px;
+    background-color: #4a4e69;
+    color: #9a8c98;
+    border-color: #9a8c98
 }
 
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
+.modal-body {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
 }
+
+.transparent-input {
+   background-color: #9a8c98;
+   border:white;
+   color: white;
+}
+
+input::-webkit-input-placeholder { 
+    color: white  !important;
+}
+
 </style>
 </head>
 <body>
 
+    
 
 
 <!-- Trigger/Open The Modal -->
@@ -98,15 +107,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <!-- Modal content -->
 <div class="modal-content">
     <div class="modal-header mb-3">
-    <h3 class>How would you like to play?</h3>
+    <h3 class="font-weight-bold">Story Outline</h3>
     <span class="close">&times;</span>
     </div>
         <div class="modal-body">
-            <div class="mb-3 form-group">
+            <div class="mb-3  form-group ">
+                
                 <label class="sr-only" for="inlineFormInputName">Name</label>
-                <input type="text" class="form-control input-lg" id="inlineFormInputName" placeholder="Story Name">
+                <input type="text" class="form-control transparent-input border border-white " id="inlineFormInputName" placeholder="Story Name">
             </div>
-            <select class="custom-select custom-select-lg mb-3" >
+            
+            <!--drop down fields-->
+            <select class="custom-select  mb-3 transparent-input border border-white" >
                 <option selected>Writers</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -115,7 +127,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <option value="5">five</option>
                 <option value="6">six</option>
             </select>
-            <select class="custom-select custom-select-lg mb-3">
+            <select class="custom-select  mb-3 transparent-input border border-white">
                 <option selected>Turns</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -124,7 +136,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <option value="5">five</option>
                 <option value="6">six</option>
             </select>
-            <button type="submit" class="btn btn-primary  mb-3">Submit</button>
+            <button type="button" name="button" class="btn btn-outline-danger btn-lg mb-3" id="playBtn">Ready to Write!</button>
         </div>
         
     </div>
