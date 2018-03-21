@@ -32,9 +32,11 @@ console.log(totalPlayers);
   var emailInput = $("#player-email");
   var playerList = $("tbody");
   var playerContainer = $(".player-container");
+      $("#startNow").hide();
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Author
   $(document).on("submit", "#player-form", handlePlayerFormSubmit);
+
   // $(document).on("click", ".delete-author", handleDeleteButtonPress);
 
   // Getting the intiial list of Authors
@@ -63,6 +65,8 @@ console.log(totalPlayers);
       numberOfTurns++
   } else {
     console.log("start game");
+    $("#team").hide();
+    $("#startNow").fadeIn();
   }
 }
 
@@ -72,7 +76,6 @@ console.log(totalPlayers);
     var newTr = $("<tr>");
     newTr.data("player", playerData);
     newTr.append("<td>" + playerData.name + "</td>");
-    newTr.append("<td>" + playerData.email + "</td>");
     return newTr;
   }
 
@@ -85,7 +88,6 @@ console.log(totalPlayers);
       }
       renderPlayerList(rowsToAdd);
       nameInput.val("");
-      emailInput.val("");
     });
   }
 
