@@ -44,23 +44,23 @@ var seedTurns = function(callback) {
   Turn.bulkCreate([
     { body: "In a galaxy far, far away.", sequence: 1, StoryId: gangsterStory.id, PlayerId: pete.id },
     { body: "In a hole in the ground there lived a hobbit.", sequence: 2, StoryId: gangsterStory.id, PlayerId: andy.id },
-    { illustration: imageURL, sequence: 3, StoryId: gangsterStory.id, PlayerId: andy.id },
+    { body: "Here is a caption.", illustration: imageURL, sequence: 3, StoryId: gangsterStory.id, PlayerId: andy.id },
     { body: "And they lived happily ever after.", sequence: 4, StoryId: gangsterStory.id, PlayerId: pete.id },
 
 
     { body: "Terror made me cruel", sequence: 1, StoryId: swindlerStory.id, PlayerId: allison.id },
-    { illustration: imageURL, sequence: 2, StoryId: swindlerStory.id, PlayerId:betty.id },
+    { body: "Here is a caption.", illustration: imageURL, sequence: 2, StoryId: swindlerStory.id, PlayerId:betty.id },
     { body: "Some men get the world, some men get ex-hookers and a trip to Arizona.", sequence: 3, StoryId: swindlerStory.id, PlayerId:allison.id },
     { body: "The only people for me are the mad ones.", sequence: 4, StoryId: swindlerStory.id, PlayerId: betty.id },
 
     { body: "It was a bright cold day in April, and the clocks were striking thirteen.", sequence: 1, StoryId: catStory.id, PlayerId: erika.id },
-    { illustration: imageURL, sequence: 2, StoryId: catStory.id, PlayerId: ruth.id },
+    { body: "Here is a caption.", illustration: imageURL, sequence: 2, StoryId: catStory.id, PlayerId: ruth.id },
     { body: "We were the people who were not in the papers.", sequence: 3, StoryId: catStory.id, PlayerId: ruth.id },
     { body: "It sounds plausible enough tonight, but wait until tomorrow.", sequence: 4, StoryId: catStory.id, PlayerId: erika.id },
 
     { body: "Harry was not like every other boy. Harry was a wizard.", sequence: 1, StoryId: wizardStory.id, PlayerId: xena.id},
     { body: "Then he did something that was both very brave and very stupid. Every book.", sequence :2, StoryId: wizardStory.id, PlayerId: joe.id},
-    { illustration: imageURL, sequence :3, StoryId: wizardStory.id, PlayerId: xena.id},
+    { body: "Here is a caption.", illustration: imageURL, sequence :3, StoryId: wizardStory.id, PlayerId: xena.id},
     { body: "Fortunately, he was friends with Hermione, who solved all his problems. And Snape Killed Dumbledore.", sequence: 4, StoryId: wizardStory.id, PlayerId: joe.id},
     { body: "Eventually he killed the dark wizard Lord VoldyThing. And Snape loved Lily. The End.", sequence: 5, StoryId: wizardStory.id, PlayerId: xena.id}
   ]).then(function(turns) {
