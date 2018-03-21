@@ -25,7 +25,7 @@ var storyToString = function(story) {
   return  "Story.id: " + story.id + "\n" +
     "Story.name: " + story.dataValues.name + "\n" +
     "Players: " + story.dataValues.Players.map(player=> player.dataValues.name).join(", ") + "\n" +
-    story.dataValues.Turns.map(turn=> turn.body + " (" + createdPlayers.find(player=> player.id === turn.PlayerId).name +")").join("\n") ;
+    story.dataValues.Turns.map(turn=> (turn.body || turn.illustration) + " (" + createdPlayers.find(player=> player.id === turn.PlayerId).name +")").join("\n") ;
 }
 
 // the resulting stories and players will be assigned to these references for easy access.
@@ -39,33 +39,51 @@ var seedTurns = function(callback) {
   // creating the following variables is totally unnessary and just done to show which players and stories are assigned to each turn
   var [pete, andy, allison, betty, ruth, erika, xena, joe] = createdPlayers;
   var [gangsterStory, swindlerStory, catStory, wizardStory] = createdStories;
+  var imageURL = "https://s3.us-east-2.amazonaws.com/fabulist-images/test-img.png";
 
   Turn.bulkCreate([
     { body: "In a galaxy far, far away.", sequence: 1, StoryId: gangsterStory.id, PlayerId: pete.id },
     { body: "In a hole in the ground there lived a hobbit.", sequence: 2, StoryId: gangsterStory.id, PlayerId: andy.id },
-    { body: "And they lived happily ever after.", sequence: 3, StoryId: gangsterStory.id, PlayerId: pete.id },
+    { illustration: imageURL, sequence: 3, StoryId: gangsterStory.id, PlayerId: andy.id },
+    { body: "And they lived happily ever after.", sequence: 4, StoryId: gangsterStory.id, PlayerId: pete.id },
+
 
     { body: "Terror made me cruel", sequence: 1, StoryId: swindlerStory.id, PlayerId: allison.id },
-    { body: "Some men get the world, some men get ex-hookers and a trip to Arizona.", sequence: 1, StoryId: swindlerStory.id, PlayerId:betty.id },
-    { body: "The only people for me are the mad ones.", sequence: 2, StoryId: swindlerStory.id, PlayerId: betty.id },
+    { illustration: imageURL, sequence: 2, StoryId: swindlerStory.id, PlayerId:betty.id },
+    { body: "Some men get the world, some men get ex-hookers and a trip to Arizona.", sequence: 3, StoryId: swindlerStory.id, PlayerId:allison.id },
+    { body: "The only people for me are the mad ones.", sequence: 4, StoryId: swindlerStory.id, PlayerId: betty.id },
 
     { body: "It was a bright cold day in April, and the clocks were striking thirteen.", sequence: 1, StoryId: catStory.id, PlayerId: erika.id },
-    { body: "We were the people who were not in the papers. ", sequence: 1, StoryId: catStory.id, PlayerId: ruth.id },
-    { body: "It sounds plausible enough tonight, but wait until tomorrow.", sequence: 1, StoryId: catStory.id, PlayerId: erika.id },
+    { illustration: imageURL, sequence: 2, StoryId: catStory.id, PlayerId: ruth.id },
+    { body: "We were the people who were not in the papers.", sequence: 3, StoryId: catStory.id, PlayerId: ruth.id },
+    { body: "It sounds plausible enough tonight, but wait until tomorrow.", sequence: 4, StoryId: catStory.id, PlayerId: erika.id },
 
     { body: "Harry was not like every other boy. Harry was a wizard.", sequence: 1, StoryId: wizardStory.id, PlayerId: xena.id},
     { body: "Then he did something that was both very brave and very stupid. Every book.", sequence :2, StoryId: wizardStory.id, PlayerId: joe.id},
-    { body: "Fortunately, he was friends with Hermione, who solved all his problems. And Snape Killed Dumbledore.", sequence: 3, StoryId: wizardStory.id, PlayerId: joe.id},
-    { body: "Eventually he killed the dark wizard Lord VoldyThing. And Snape loved Lily. The End.", sequence: 4, StoryId: wizardStory.id, PlayerId: xena.id}
+    { illustration: imageURL, sequence :3, StoryId: wizardStory.id, PlayerId: xena.id},
+    { body: "Fortunately, he was friends with Hermione, who solved all his problems. And Snape Killed Dumbledore.", sequence: 4, StoryId: wizardStory.id, PlayerId: joe.id},
+    { body: "Eventually he killed the dark wizard Lord VoldyThing. And Snape loved Lily. The End.", sequence: 5, StoryId: wizardStory.id, PlayerId: xena.id}
   ]).then(function(turns) {
     // uncomment following line to print all the created turns
     // console.log(turns.map(turn=> turn.dataValues));
 
     // this last bit loads all stories, including their turns, and displays.
     Story.findAll({include: [Turn, Player]}).then(function(stories) {
-      console.log(stories.map(story => (storyToString(story))).join("\n\n"));
+      console.log(stories.map(story => (storyToString(story))).join("\n-------------------------\n"));
       runOnComplete();
     })
+
+    // Print story in reverse (seems to work. Uncomment to try out. Story orders are unspecified)
+    // note you may need to uncomment out the "runOnComplete()" above, which closed the sequelize connection. potentially prematurely.
+    // Story.findAll({
+    //   include: [Turn, Player],
+    //   order: [['id', 'DESC'],[Turn, 'sequence', 'DESC']]
+    // }).then(function(stories) {
+    //   console.log("\n\nPrinting stories in reverse order, starting from last story.\n\n")
+    //   console.log(stories.map(story => (storyToString(story))).join("\n-------------------------\n"));
+    //   runOnComplete();
+    // })
+
   });
 }
 
