@@ -5,29 +5,63 @@
 
 
 ## Built With
-  - [Node.js](https://nodejs.org/en/download/)
-  - [express](https://www.npmjs.com/package/express)
-  - [express-handlebars](https://www.npmjs.com/package/express-handlebars)
-  - [body-parser](https://www.npmjs.com/package/express)
-  - [dotenv](https://www.npmjs.com/package/dotenv)
-  - [MySQL](https://www.mysql.com/downloads/)
-  - [Sequelize](https://www.npmjs.com/package/sequelize)
+  - [Node.js](https://nodejs.org/en/download/) Open source server framework for using JavaScript
+  - [Express](https://www.npmjs.com/package/express) Web server framework for Node.js
+  - [Body-parser](https://www.npmjs.com/package/express) Request body parsing middleware for Node.js
+  - [Dotenv](https://www.npmjs.com/package/dotenv) Used to obscure passwords and keys
+  - [MySQL](https://www.mysql.com/downloads/) Open source relational database management system
+  - [Sequelize](https://www.npmjs.com/package/sequelize) Used here as an ORM to the MySQL database
+  - [Express-fileupload](https://www.npmjs.com/package/express-fileupload)  Express middleware for uploading files
+  - [S3](https://www.npmjs.com/package/s3) Creates a client for Amazon AWS S3 for uploading and downloading image files
 
 
 ## Authors
 
-* [Jerridd Speidel](https://github.com/TowerGuy2909)
-* [Maiyer Thao](https://github.com/jaethao)
-* [Craig Christensen](https://github.com/ruffcorn33)
-* [Joe Semlak](https://github.com/semlak)
-* [Cristina Zhang](https://github.com/rami0141)
+* [Jerridd Speidel](https://github.com/TowerGuy2909) UI and modals
+* [Maiyer Thao](https://github.com/jaethao) Graphic design and drawing component
+* [Craig Christensen](https://github.com/ruffcorn33) Database - MySQL and AWS S3
+* [Joe Semlak](https://github.com/semlak) Testing
+* [Cristina Zhang](https://github.com/rami0141) Gameplay
 
 
 
 ### **Requirements**
 Users must have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [MySQL](https://www.mysql.com/downloads/) and [Node.js](https://nodejs.org/en/download/) installed before completing these instructions.
+Users must also follow the steps in `AWS User Setup` before installing Fabulist.<br>
 
-### **Installing the app**
+### **AWS User Setup Steps:**
+
+(These instructions are modified from fishcharlie's instructions here: [ExpressFileUploadS3Example](https://github.com/fishcharlie/ExpressFileUploadS3Example))
+1.  Create an [Amazon Web Services (AWS)](https://aws.amazon.com) account.
+2.  Once at the main AWS dashboard search for the `IAM` service or scroll down to find the `IAM` service and select that.
+3.  On the left panel of the `IAM` service select `Users`.
+4.  Click `Add user` at the top of the screen.
+5.  Enter a `User name` in the text field. This can be anything (ex. `webuser`, `s3user`, `appkey`, etc.)
+6.  Click the check box next to `Programmatic access`.
+7.  Click `Next: Permissions`.
+8.  Select `Attach existing policies directly`.
+9.  In the search field right below that type in `S3`.
+10. Click on the check box next to `AmazonS3FullAccess`.
+11. Scroll down and click on the `Next: Review` button.
+12. Click `Create user`.
+13. This will display a table with your `Access key ID` and `Secret access key`. You will need to click the `Show` button to view your `Secret access key`. **!!! Important: this is the *only* time you will be able to see your secret access key without regenerating it, so please be sure to save it somewhere secure. !!!**
+
+
+
+**AWS S3 Bucket Creation:**
+
+1.  Go to the main AWS dashboard.
+2.  Search for or scroll down to select `S3`.
+3.  Click `Create bucket`.
+4.  Give your bucket a unique name. The default is 'fabulist-images'.
+5.  Select the region you wish to store your bucket data in.
+6.  Click `Next`.
+7.  The next panel allows you to set custom properties for your bucket. For now we will use the default settings so click `Next`.
+8.  Under the drop down for `Manage public permissions` select `Not Public`.
+9.  Click `Next`.
+10. Click `Create bucket`.
+
+### **Installing Fabulist**
 
 1) From git bash, Terminal or Command Prompt, clone this repository to a directory on your computer.
 
@@ -42,17 +76,20 @@ npm install
 
 ```
 
-
-Users will need to add a file name '.env' to the project folder.
+Users will need to add a file named '.env' to the project folder.
 Add these lines to the file:
 
 ```
 MYSQL_PASSWORD=?????????
 MYSQL_USERNAME=?????????
+AWS_SECRET_ACCESS_KEY:??????????????????????????????????????????
+AWS_ACCESS_KEY_ID:?????????????????
+S3BUCKET:fabulist-images,
 
 ```
 
-Replace the question marks with your MySQL password and username (without these variables, the app will still try to run with default user is root, and password as NULL)
+Replace the question marks with your MySQL password and username (without these variables, the app will still try to run with default user is root, and password as NULL)<br>
+Replace the question marks for the AWS fields with your secret access key and access key ID obtained above in `AWS User Setup Steps`.  If you named your S3 bucket something other than 'fabulist-images', replace that for the S3BUCKET field.
 
 
 ### **Setting up the MySQL database**
@@ -61,9 +98,7 @@ Replace the question marks with your MySQL password and username (without these 
 
 2) Click the new connection box to open it.  From the File menu, select 'Open SQL Script'.  Navigate to your project folder/db and select schema.sql.  Run the code to create the database.
 
-<!-- 3) Click File/Open SQL Script again, navigate to the project/db folder and select seeds.sql.  Run the code in seeds.sql to populate the table with seed data. -->
-
-3) To seed database, 'npm run seed'
+3) To seed database, 'npm run seed'.
 
 
 ### npm scripts
@@ -80,7 +115,7 @@ npm run seed
 node db/seedWithSequelize
 
 # reinitialize databases with Sequelize Models (doesn't populate tables)
-npm run syndDBModels
+npm run syncDBModels
 ```
 
 
