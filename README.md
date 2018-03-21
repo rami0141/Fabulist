@@ -63,6 +63,25 @@ Replace the question marks with your MySQL password and username (without these 
 
 <!-- 3) Click File/Open SQL Script again, navigate to the project/db folder and select seeds.sql.  Run the code in seeds.sql to populate the table with seed data. -->
 
+3) To seed database, 'npm run seed'
+
+
+### npm scripts
+```
+# run server
+npm start
+
+# run tests (see below)
+npm test
+
+# initialize database and seed with sample data
+npm run seed
+# or, from project root
+node db/seedWithSequelize
+
+# reinitialize databases with Sequelize Models (doesn't populate tables)
+npm run syndDBModels
+```
 
 
 ### Running Tests
