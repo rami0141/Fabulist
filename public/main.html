@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Jquery and Bootstrap js styling -->
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <!-- nav bar -->
@@ -56,6 +57,53 @@
   </div>
   </div>
   <br>
+   <!-- Trigger/Open The Modal
+   <button id="myBtn">New Game</button> -->
+
+   <!-- The Modal -->
+   <div id="myModal" class="modal ">
+
+       <!-- Modal content -->
+       <div class="modal-content modal-dialog modal-sm ">
+           <div class="modal-header mb-3">
+               <h3 class="font-weight-bold">Story Outline</h3>
+               <span class="close">&times;</span>
+           </div>
+           <div class="modal-body ">
+               <div class="mb-3  form-group ">
+
+                   <label class="sr-only" for="inlineFormInputName">Name</label>
+                   <input type="text" class="form-control transparent-input border border-white " id="inlineFormInputName" placeholder="Story Name">
+               </div>
+
+               <!--drop down fields-->
+               <select class="custom-select  mb-3 transparent-input border border-white">
+                   <option selected>Writers</option>
+                   <option value="1">One</option>
+                   <option value="2">Two</option>
+                   <option value="3">Three</option>
+                   <option value="4">four</option>
+                   <option value="5">five</option>
+                   <option value="6">six</option>
+               </select>
+               <select class="custom-select  mb-3 transparent-input border border-white">
+                   <option selected>Turns</option>
+                   <option value="1">One</option>
+                   <option value="2">Two</option>
+                   <option value="3">Three</option>
+                   <option value="4">four</option>
+                   <option value="5">five</option>
+                   <option value="6">six</option>
+               </select>
+               <div class="form-row text-center">
+                   <div class="col-12">
+                       <button type="button" name="button" class="btn btn-outline-danger btn-lg mb-3  " id="playBtn">Ready!</button>
+                   </div>
+               </div>
+           </div>
+
+       </div>
+   </div>
 
   <!-- stories -->
   <div class="container">
