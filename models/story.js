@@ -8,16 +8,16 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   // Creating a one-many relation, Story --> Turn
-  // When an Author is deleted, also delete any associated Turns
+  // When an Story is deleted, also delete any associated Turns
   Story.associate = function(models) {
     Story.hasMany(models.Turn, {
       onDelete: "cascade"
     });
-  };
+    
+    Story.hasMany(models.Player, {
+      onDelete: "cascade"
+    });
 
-  // Creating a one-many relation, Story --> Player
-  Story.associate = function(models) {
-    Story.hasMany(models.Player);
   };
   
   return Story;

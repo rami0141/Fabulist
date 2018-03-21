@@ -9,7 +9,9 @@
   "scripts": {
     "test": "mocha --exit",
     "karma" : "karma start",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node db/seedWithSequelize",
+    "syncDBModel": "node db/syncDBModel"
   },
   "repository": {
     "type": "git",

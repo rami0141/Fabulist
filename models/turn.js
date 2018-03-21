@@ -4,39 +4,36 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        len: [1]
+        isInt: true
       }
     },
     body: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isInt: true
+        len: [1]
       }
     },
-    illustration: {
-      type: DataTypes.STRING.BINARY,
-      allowNull: true
+    illustration:  { 
+      type: DataTypes.STRING, allowNull: true,
+      defaultValue: null,
+      validate: { isUrl: { msg: 'Invalid URL' } }
     }
   });
-
-  Turn.associate = function(models){
-    Turn.belongsTo(models.Story, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
-
-  Turn.associate = function(models){
-    Turn.belongsTo(models.Player, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
-
-  // Turn.sync();
+    
+    Turn.associate = function(models){
+      Turn.belongsTo(models.Player, {
+        foreignKey: {
+          allowNull: false
+        }
+      });    
+      Turn.belongsTo(models.Story, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+      
+    };
 
   return Turn;
 };
