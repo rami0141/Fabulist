@@ -12,19 +12,31 @@ module.exports = function(app) {
   // GET route for getting all of the turns
   app.get("/api/turns", function(req, res) {
     var query = {};
-    if (req.query.game_id) {
-      query.GameId = req.query.game_id;
+    if (req.query.story_id) {
+      query.GameId = req.query.story_id;
     }
-    // Including Game in a left outer join (is there any need to get all turns for a player?)
+    // Including story in a left outer join
     db.Turn.findAll({
       where: query,
-      include: [db.Game]
+      include: [db.Story]
     }).then(function(dbTurn) {
       res.json(dbTurn);
     });
   });
+  
+  // POST route for saving a new turn
+  app.post("/api/turns", function(req, res) {
+    db.Turn.create(req.body).then(function(dbTurn) {
+      res.json(dbTurn);
+    });
+  });
+  
 
-  // Get rotue for retrieving a single turn - probably not needed
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // the routes below here are probably not needed
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  // Get route for retrieving a single turn
   app.get("/api/turns/:id", function(req, res) {
     // Including Game in a left outer join
     db.Turn.findOne({
@@ -37,14 +49,7 @@ module.exports = function(app) {
     });
   });
 
-  // POST route for saving a new turn
-  app.post("/api/turns", function(req, res) {
-    db.Turn.create(req.body).then(function(dbTurn) {
-      res.json(dbTurn);
-    });
-  });
-
-  // DELETE route for deleting turns - probably not needed
+  // DELETE route for deleting turns
   app.delete("/api/turns/:id", function(req, res) {
     db.Turn.destroy({
       where: {
@@ -55,7 +60,7 @@ module.exports = function(app) {
     });
   });
 
-  // PUT route for updating posts - probably not needed
+  // PUT route for updating posts
   app.put("/api/turns", function(req, res) {
     db.Turn.update(
       req.body,

@@ -9,22 +9,15 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the players
+  // GET route for getting all of the players for a story
   app.get("/api/players", function(req, res) {
     var query = {};
+    if (req.query.story_id){
+      query.storyId = req.query.story_id;
+    }
     db.Player.findAll({
       where: query,
-    }).then(function(dbPlayer) {
-      res.json(dbPlayer);
-    });
-  });
-
-  // Get route for retrieving a single Player - probably not needed
-  app.get("/api/players/:id", function(req, res) {
-    db.Player.findOne({
-      where: {
-        id: req.params.id
-      },
+      include: [db.Story]
     }).then(function(dbPlayer) {
       res.json(dbPlayer);
     });
@@ -37,6 +30,22 @@ module.exports = function(app) {
     });
   });
 
+  // Get route for retrieving a single Player
+  app.get("/api/players/:id", function(req, res) {
+    db.Player.findOne({
+      where: {
+        id: req.params.id
+      },
+    }).then(function(dbPlayer) {
+      res.json(dbPlayer);
+    });
+  });
+
+  
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// the routes below here are probably not needed
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   // DELETE route for deleting players - probably not needed
   app.delete("/api/players/:id", function(req, res) {
     db.Player.destroy({
@@ -48,7 +57,7 @@ module.exports = function(app) {
     });
   });
 
-  // PUT route for updating players - porbably not needed
+  // PUT route for updating players - probably not needed
   app.put("/api/players", function(req, res) {
     db.Player.update(
       req.body,

@@ -18,7 +18,7 @@ $(document).ready(function() {
     if (!gameName.val().trim() || !totalPlayers.val().trim()) {
       return;
     }
-    // Calling the upsertAuthor function and passing in the value of the name input
+    // Calling the upsertGame function and passing in the value of the name input
     upsertGame ({
       name: gameName
         .val()
