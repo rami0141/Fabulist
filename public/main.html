@@ -70,14 +70,16 @@
                <span class="close">&times;</span>
            </div>
            <div class="modal-body ">
-               <div class="mb-3  form-group ">
-
-                   <label class="sr-only" for="inlineFormInputName">Name</label>
-                   <input type="text" class="form-control transparent-input border border-white " id="inlineFormInputName" placeholder="Story Name">
+            <div class="hello">
+               <div class="mb-3 form-group ">
+                  <form id='game-form'>
+                    <label class="sr-only" for="inlineFormInputName">Name</label>
+                    <input type="text" class="form-control transparent-input border border-white " id="inlineFormInputName" placeholder="Story Name">
+                  </form>
                </div>
-
                <!--drop down fields-->
-               <select class="custom-select  mb-3 transparent-input border border-white">
+            <div id="player-form">
+              <select class="custom-select  mb-3 transparent-input border border-white" id="numberOfPlayers">
                    <option selected>Writers</option>
                    <option value="1">One</option>
                    <option value="2">Two</option>
@@ -86,6 +88,7 @@
                    <option value="5">five</option>
                    <option value="6">six</option>
                </select>
+              </div>
                <select class="custom-select  mb-3 transparent-input border border-white">
                    <option selected>Turns</option>
                    <option value="1">One</option>
@@ -97,13 +100,69 @@
                </select>
                <div class="form-row text-center">
                    <div class="col-12">
-                       <button type="button" name="button" class="btn btn-outline-danger btn-lg mb-3  " id="playBtn">Ready!</button>
+                       <button type="button" name="button" class="btn btn-outline-danger btn-lg mb-3  " id="startSubmit">Ready!</button>
                    </div>
                </div>
-           </div>
+            </div>
+          
 
+
+
+          <!-- PLAYER NAME AND EMAIL  -->
+<div class="container">
+   
+       <div class="player-container">
+        <h1>Players</h1>
+           <table class="table table-striped">
+             <thead>
+               <tr>
+                 <th>Name</th>
+                 <th>Email</th>
+               </tr>
+            </thead>
+             <tbody>
+               <tr id="form-row">
+                 <form id="player-form">
+                  <td colspan="4">
+                    <label class="sr-only" for="inlineFormInputName">Player Name</label>
+                     <input placeholder="Enter a name" id="player-name" type="text" /> <br>
+                     <label class="sr-only" for="inlineFormInputName">Player Email</label>
+                     <input placeholder="Enter an email" id="player-email" type="text" />
+                  </td>
+                  <br>
+                   <td><button type="submit" class="btn btn-success">Create Player</button>
+                   </td>
+                 </form>
+               </tr>
+             </tbody>
+            </table>
+         
+         </div>
+       </div>
+     </div>
+    </div>
+    </div>
+    
+  
+     <!-- Posting Paragraph Section 
+// <div class="container">
+// <div class="form-group">
+//     <label for="exampleFormControlTextarea1">Write your paragraph</label>
+//     <textarea class="form-control" id="story"></textarea>
+// </div>
+
+//   <button id="storySubmit" type='submit' class='btn btn-success'>Submit</button> 
+
+
+          </div>
        </div>
    </div>
+
+
+
+
+
+
 
   <!-- stories -->
   <div class="container">
@@ -170,7 +229,7 @@
   </div>
   <br>
   <br>
-<<!-- !-- NAME AND NUMBER OF PLAYERS 
+<<!--  NAME AND NUMBER OF PLAYERS 
 <div class="container">
   <div class="hello">
 <h2>Enter Name of Game</h2><br>

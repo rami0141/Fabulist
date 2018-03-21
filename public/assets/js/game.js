@@ -1,4 +1,5 @@
 
+
 $(document).ready(function() {
   $(".player-container").hide();
 
@@ -11,7 +12,7 @@ $(document).ready(function() {
         $(".hello").hide();
 
         var newGame = {
-          name: $("#game-name").val().trim()
+          name: $("#inlineFormInputName").val().trim()
         };
 
         totalPlayers = $("#numberOfPlayers").val().trim();
