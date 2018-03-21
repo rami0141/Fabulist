@@ -6,33 +6,30 @@ $(document).ready(function() {
   var totalPlayers = 0;
 
   $("#startSubmit").on("click", function(event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        $(".player-container").fadeIn();
-        $(".hello").hide();
+    $(".player-container").fadeIn();
+    $(".hello").hide();
 
-        var newGame = {
-          name: $("#inlineFormInputName").val().trim()
-        };
+    var newGame = {
+      name: $("#inlineFormInputName").val().trim()
+    };
 
-        totalPlayers = $("#numberOfPlayers").val().trim();
-        console.log(totalPlayers);
+    totalPlayers = $("#numberOfPlayers").val().trim();
+      console.log(totalPlayers);
 
-        $.post("/api/stories", newGame)
-            .done(function(data) {
-              console.log(data);
-        });
+      $.post("/api/stories", newGame)
+        .done(function(data) {
+          console.log(data);
+      });
         $("#game-name").val("");
-
     });
-
-
 
   // Getting references to the name inout and author container, as well as the table body
   var nameInput = $("#player-name");
   var emailInput = $("#player-email");
   var playerList = $("tbody");
-  var playerContainer = $(".player-container");
+  var playerContainer = $(".playerContainer");
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Author
   $(document).on("submit", "#player-form", handlePlayerFormSubmit);
@@ -45,15 +42,12 @@ $(document).ready(function() {
   function handlePlayerFormSubmit(event) {
     event.preventDefault();
     // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim() || !emailInput.val().trim()) {
+    if (!nameInput.val().trim()) {
       return;
     }
 
     upsertPlayer({
       name: $("#player-name")
-        .val()
-        .trim(),
-      email: $("#player-email")
         .val()
         .trim()
     });
@@ -71,7 +65,6 @@ $(document).ready(function() {
     var newTr = $("<tr>");
     newTr.data("player", playerData);
     newTr.append("<td>" + playerData.name + "</td>");
-    newTr.append("<td>" + playerData.email + "</td>");
     return newTr;
   }
 
