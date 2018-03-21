@@ -6,30 +6,32 @@ $(document).ready(function() {
   var totalPlayers = 0;
 
   $("#startSubmit").on("click", function(event) {
-    event.preventDefault();
+        event.preventDefault();
 
-    $(".player-container").fadeIn();
-    $(".hello").hide();
+        $(".player-container").fadeIn();
+        $(".hello").hide();
 
-    var newGame = {
-      name: $("#inlineFormInputName").val().trim()
-    };
+        var newGame = {
+          name: $("#inlineFormInputName").val().trim()
+        };
 
-    totalPlayers = $("#numberOfPlayers").val().trim();
-      console.log(totalPlayers);
+        totalPlayers = $("#numberOfPlayers").val().trim();
+        console.log(totalPlayers);
 
-      $.post("/api/stories", newGame)
-        .done(function(data) {
-          console.log(data);
-      });
+        $.post("/api/stories", newGame)
+            .done(function(data) {
+              console.log(data);
+        });
         $("#game-name").val("");
+
     });
 
-  // Getting references to the name inout and author container, as well as the table body
+console.log(totalPlayers);
+  var numberOfTurns = 0;
   var nameInput = $("#player-name");
   var emailInput = $("#player-email");
   var playerList = $("tbody");
-  var playerContainer = $(".playerContainer");
+  var playerContainer = $(".player-container");
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Author
   $(document).on("submit", "#player-form", handlePlayerFormSubmit);
@@ -55,9 +57,14 @@ $(document).ready(function() {
 
   // A function for creating a player. 
   function upsertPlayer(playerData) {
+    if( numberOfTurns < totalPlayers){
     $.post("/api/players", playerData)
       .then(getPlayers);
+      numberOfTurns++
+  } else {
+    console.log("start game");
   }
+}
 
   // Function for creating a new list row for players
   function createPlayerRow(playerData) {
@@ -65,6 +72,7 @@ $(document).ready(function() {
     var newTr = $("<tr>");
     newTr.data("player", playerData);
     newTr.append("<td>" + playerData.name + "</td>");
+    newTr.append("<td>" + playerData.email + "</td>");
     return newTr;
   }
 
@@ -143,6 +151,7 @@ $(document).ready(function() {
      if (event.target == modal) {
          modal.style.display = "none";
      }
- }
+    }
+ 
 
   
