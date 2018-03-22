@@ -15,8 +15,11 @@
   <!-- Jquery and Bootstrap js styling -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
-
+  <!-- fontawesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <!-- nav bar -->
   <nav>
@@ -150,10 +153,18 @@
       <div class="col-lg-6">
         <form id="cms">
           <div class="form-group">
-            <br />
             <label for="body">Write your paragraph:</label>
             <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
             <br />
+            <form>
+              <div class="form-group row">
+                <i class="fas fa-user-circle fa-2x col-sm-2"></i>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="author" placeholder="author" required>
+                  </div>
+                </div>
+            </form>
+            <br>
             <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
           </div>
         </form>
