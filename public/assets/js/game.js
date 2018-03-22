@@ -36,8 +36,7 @@ $(document).ready(function() {
   console.log(totalPlayers);
   var numberOfTurns = 0;
   var nameInput = $("#player-name");
-  var emailInput = $("#player-email");
-  var playerList = $("tbody");
+
   var playerContainer = $(".player-container");
       
   $("#startNow").hide();
@@ -72,7 +71,9 @@ $(document).ready(function() {
     // console.log('playerData is:')
     // console.log(playerData);
 
+
     if( numberOfTurns < totalPlayers-1){
+
       var name = $("#player-name").val().trim();
       console.log(name);
 
@@ -88,6 +89,7 @@ $(document).ready(function() {
           }
         );
       });
+
       
       // Add to number of turns
       numberOfTurns++
@@ -132,6 +134,7 @@ $(document).ready(function() {
 
 });  // End of document.ready function
   
+
 
 
 
