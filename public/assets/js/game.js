@@ -1,7 +1,11 @@
 
 
 $(document).ready(function() {
+  // --------------------------GAME NAME - NUMBER OF PLAYERS SECTION --------------------
+  $(".paragraph").hide();
   $(".player-container").hide();
+
+
 
   // created a variable to store the number of players
   var totalPlayers = 0;
@@ -37,9 +41,9 @@ $(document).ready(function() {
   var emailInput = $("#player-email");
   var playerList = $("tbody");
   var playerContainer = $(".player-container");
-      
+
   $("#startNow").hide();
- 
+
   $(document).on("submit", "#player-form", handlePlayerFormSubmit);
 
 
@@ -64,8 +68,10 @@ $(document).ready(function() {
     console.log(playerArr);
   }
 
+
   var playerArr = [];
   // A function for creating a player. 
+
   // Only allowed to create number of players selected
   function upsertPlayer(playerData) {
     // console.log('playerData is:')
@@ -77,6 +83,7 @@ $(document).ready(function() {
 
       //Should update database??
       $.post("/api/players", playerData)
+
       .done(function(playerData) {
         console.log('data is:');
         console.log(playerData);
@@ -88,6 +95,7 @@ $(document).ready(function() {
         );
       });
       
+
       // Add to number of turns
       numberOfTurns++
       // reset input box to nothing
@@ -121,16 +129,81 @@ $(document).ready(function() {
 
   };  
 
-  //random word function
-  // Random Themes
-  function randomThemes() {
-    var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
-    var randomThemes = themes[Math.floor(Math.random() * themes.length)];
-    console.log(randomThemes);
-  }
 
-});  // End of document.ready function
-  
+// ------------------------ RANDOM THEME SECTION-------------------------------
+
+  $(document).on("click", "#startNow", randomThemes);
+    $(".paragraph").fadeIn();
+
+    function randomThemes() {
+      $("#rule").hide();
+      $("#storiesMenu").hide();
+      var themes = ["Coco the Dog", "Nala the Cat", "Pepperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
+      var randomThemes = themes[Math.floor(Math.random() * themes.length)];
+      var html = "<h2>Story Theme: " + randomThemes + "</h2>";
+      document.querySelector("#random").innerHTML = html;
+    }
+
+
+
+// --------------------- WRITE YOUR STORY SECTION ------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------------------------- SHOW ALL POSTS ---------------------------------
+
+  // blogContainer holds all of our posts
+//   var storyContainer = $(".story-container");
+//   var postCategorySelect = $("#category");
+
+//   // Variable to hold our posts
+//   var posts;
+
+//     // The code below handles the case where we want to get blog posts for a specific author
+//   // Looks for a query param in the url for author_id
+//   var url = window.location.search;
+//   var playerId;
+//   if (url.indexOf("?player_id=") !== -1) {
+//     playerId = url.split("=")[1];
+//     getPosts(playerId);
+//   }
+//   // If there's no authorId we just get all posts as usual
+//   else {
+//     getPosts();
+//   }
+
+//   // This function grabs posts from the database and updates the view
+//    function getPosts(player) {
+//     playerId = player || "";
+//     if (playerId) {
+//       playerId = "/?player_id=" + playerId;
+//     }
+//     $.get("/api/turns" + playerId, function(data) {
+//       console.log("Posts", data);
+//       posts = data;
+//       if (!posts || !posts.length) {
+//         displayEmpty(player);
+//       }
+//       else {
+//         initializeRows();
+//       }
+//     });
+//   }
+
+
+// });
+
 
 
 
@@ -145,7 +218,7 @@ $(document).ready(function() {
  // Get the <span> element that closes the modal
  var span = document.getElementsByClassName("close")[0];
 
- // When the user clicks the button, open the modal 
+ // When the user clicks the button, open the modal
  btn.onclick = function () {
      modal.style.display = "block";
  }
@@ -155,12 +228,10 @@ $(document).ready(function() {
      modal.style.display = "none";
  }
 
- // When the user clicks anywhere outside of the modal, close it
+ //When the user clicks anywhere outside of the modal, close it
  window.onclick = function (event) {
      if (event.target == modal) {
          modal.style.display = "none";
      }
-    }
- 
-
-  
+   }
+ });

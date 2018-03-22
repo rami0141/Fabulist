@@ -15,8 +15,11 @@
   <!-- Jquery and Bootstrap js styling -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
-
+  <!-- fontawesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <!-- nav bar -->
   <nav>
@@ -26,16 +29,13 @@
     <div id="menu">
       <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Play Now!</a>
-  </li>
-  <li class="nav-item">
     <a class="nav-link" href="main.html">Home</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">About</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Login</a>
+    <a class="nav-link" href="#fstories">Finished Stories</a>
   </li>
 </ul>
     </div>
@@ -61,99 +61,178 @@
   </div>
   </div>
   <br>
-   <!-- Trigger/Open The Modal
-   <button id="myBtn">New Game</button> -->
 
-   <!-- The Modal -->
-   <div id="myModal" class="modal">
-
-       <!-- Modal content -->
-       <div class="modal-content modal-dialog modal-lg ">
-           <div class="modal-header mb-3">
-               <h3 class="font-weight-bold">Story Outline</h3>
-               <span class="close">&times;</span>
-           </div>
-           <div class="modal-body">
-            <div class="hello">
-               <div class="mb-3 form-group">
-                  <form id='game-form'>
-                    <label class="sr-only" for="inlineFormInputName">Name</label>
-                    <input type="text" class="form-control transparent-input border border-white " id="inlineFormInputName" placeholder="Story Name">
-                  </form>
-               </div>
-               <!--drop down fields-->
-            <div id="player-form">
-              <select class="custom-select mb-3 transparent-input border border-white" id="numberOfPlayers">
-                   <option selected>Number of Players</option>
-                   <option value="1">One</option>
-                   <option value="2">Two</option>
-                   <option value="3">Three</option>
-                   <option value="4">four</option>
-                   <option value="5">five</option>
-                   <option value="6">six</option>
-               </select>
-              </div>
-               <div class="form-row text-center">
-                   <div class="col-12">
-                       <button type="button" name="button" class="btn btn-outline-danger btn-lg mb-3" id="startSubmit">Ready!</button>
-                   </div>
-               </div>
+    <!-- stories -->
+    <div class="container">
+    <div id="storiesMenu">
+      <h1 class="text-center">Explore finished stories</h1>
+      <br>
+      <br>
+      <!-- 1st row -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        </div>
+      </div>
+      <br>
+  <!-- 2nd row -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <br>
+    <br>
 
+    <!-- Trigger/Open The Modal
+    <button id="myBtn">New Game</button> -->
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content modal-dialog modal-lg ">
+            <div class="modal-header mb-3">
+                <h3 class="font-weight-bold">Story Outline</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+             <div class="hello">
+                <div class="mb-3 form-group">
+                   <form id='game-form'>
+                     <label class="sr-only" for="inlineFormInputName">Name</label>
+                     <input type="text" class="form-control transparent-input border border-white " id="inlineFormInputName" placeholder="Story Name">
+                   </form>
+                </div>
+                <!--drop down fields-->
+             <div id="player-form">
+               <select class="custom-select mb-3 transparent-input border border-white" id="numberOfPlayers">
+                    <option selected>Number of Players</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">four</option>
+                    <option value="5">five</option>
+                    <option value="6">six</option>
+                </select>
+               </div>
+                <div class="form-row text-center">
+                    <div class="col-12">
+                        <button type="button" name="button" class="btn btn-outline-danger btn-lg mb-3" id="startSubmit">Ready!</button>
+                    </div>
+                </div>
+             </div>
 
-          <!-- PLAYERS NAME  -->
-    <div class="container">
-       <div class="player-container">
-        <h1>Players</h1>
-          <ol>
-            <h6>Player Name:</h6>
-          </ol>
-               <tr id="form-row">
-                 <form id="player-form">
-                  <td colspan="4">
-                    <label class="sr-only" for="inlineFormInputName">Player Name</label>
-                     <input placeholder="Enter a name" id="player-name" type="text" /> <br>
-
-                  </td>
-                  <br>
-                   <td><button id="team" type="submit" class="btn btn-outline-danger btn-lg mb-3">Create Player</button>
-                   </td>
-                 </form>
-               </tr>
-             </tbody>
-            </table>
-            <button id="startNow" type="submit" class="btn btn-outline-danger btn-lg mb-3">Start Game</button>
-         </div>
-       </div>
+           <!-- PLAYERS NAME  -->
+     <div class="container">
+        <div class="player-container">
+         <h1>Players</h1>
+         <br>
+         <form>
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+            <input type="text" class="form-control" id="name"required>
+              </div>
+              </div>
+              <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+              <input type="email" class="form-control" id="email" required>
+                </div>
+                </div>
+              </form>
+                   <br>
+                    <td><button id="team" type="submit" class="btn btn-outline-danger btn-lg mb-3">Create Player</button>
+                    </td>
+                  </form>
+                </tr>
+              </tbody>
+             </table>
+             <button id="startNow" type="submit" class="btn btn-outline-danger btn-lg mb-3">Start Game</button>
+          </div>
+        </div>
+      </div>
      </div>
-    </div>
-    </div>
+     </div>
+
+    <!-- This will where the random theme will show -->
+    <div id="random"></div>
 
 
 
-    <!-- This will where the writing will happen -->
     <!-- hidden until game starts -->
-    <div class="container">
+    <div class="container paragraph">
       <div class="row">
       <!-- drawing app -->
         <div class="col-lg-6">
           <!-- canvas -->
       <div class="example" data-example="3">
-        <div class="board" id="custom-board-2" style="width: 500px; height: 500px;">
-
+        <div class="board" id="custom-board-2" style="width: 450px; height: 500px;">
         </div>
       </div>
+      <br>
         </div>
       <!-- text box -->
       <div class="col-lg-6">
         <form id="cms">
           <div class="form-group">
-            <br />
             <label for="body">Write your paragraph:</label>
             <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
             <br />
+            <form>
+              <div class="form-group row">
+                <i class="fas fa-user-circle fa-2x col-sm-2"></i>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="author" placeholder="author" required>
+                  </div>
+                </div>
+            </form>
+            <br>
             <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
           </div>
         </form>
@@ -164,74 +243,10 @@
     <!-- This is where combining all paragraphs will happen -->
     <!-- hidden until called upon -->
 
-
-
-
-  <!-- stories -->
-  <div class="container">
-  <div id="storiesMenu">
-    <h1 class="text-center">Explore finished stories</h1>
-    <br>
-    <br>
-    <!-- 1st row -->
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
+   <div class="row">
+      <div class="col-md-12 story-container">
       </div>
     </div>
-    <br>
-<!-- 2nd row -->
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <br>
-  <br>
 
   <!-- footer -->
   <footer>
