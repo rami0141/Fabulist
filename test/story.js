@@ -73,7 +73,7 @@ describe('story', function () {
       Player.create({
         name: 'Xena',
         email: 'xena@exhausted.com',
-        // storyId: story.id
+        StoryId: story.id
       }).then(function(player) {
         // player.setStory(story, {save: false});
         // return player.save();

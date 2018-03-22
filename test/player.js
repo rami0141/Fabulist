@@ -15,7 +15,8 @@ describe('player', function () {
   it('should create player with name and email', function (done) {
     Player.create({
       name: 'Xena',
-      email: 'xena@exhausted.com'
+      email: 'xena@exhausted.com',
+      StoryId: 1
     }).then(function (player) {
       expect(player.name).to.equal("Xena");
       expect(player.email).to.equal("xena@exhausted.com");
@@ -29,7 +30,8 @@ describe('player', function () {
   it('should create another player with name and email', function (done) {
     Player.create({
       name: 'Joe',
-      email: 'joe@exhausted.com'
+      email: 'joe@exhausted.com',
+      StoryId: 1
     }).then(function (player) {
       expect(player.name).to.equal("Joe");
       expect(player.email).to.equal("joe@exhausted.com");
@@ -43,7 +45,8 @@ describe('player', function () {
 
   it('should allow new player with null email', function (done) {
     Player.create({
-      name: 'XenaWithNoEmail'
+      name: 'XenaWithNoEmail',
+      StoryId: 1
     }).then(function (player) {
       expect(player.name).to.equal("XenaWithNoEmail");
       // note: database objects have email listed as null when not defined, but mocha/chai testing seems to say it is undefined.
@@ -60,7 +63,8 @@ describe('player', function () {
 
   it('should reject new player with no name', function (done) {
     Player.create({
-      email: 'player_with_no_name@exhausted.com'
+      email: 'player_with_no_name@exhausted.com',
+      StoryId: 1
     }).then(function (response) {
      throw new Error ("should not get here. An error should have already been thrown, resulting in the catch block being run")
       done();
