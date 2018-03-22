@@ -10,9 +10,9 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        isEmail: true
-      }
+      // validate: {
+      //   isEmail: true
+      // }
     }
   });
 
@@ -20,17 +20,17 @@ module.exports = function(sequelize, DataTypes) {
   // When an Player is deleted, also delete any associated Turns
   // It is unlikely that Fabulist gameplay will delete players
   Player.associate = function(models) {
+
     Player.hasMany(models.Turn, {
       onDelete: "cascade"
     });
-  };
 
-  Player.associate = function(models){
     Player.belongsTo(models.Story, {
       foreignKey: {
         allowNull: false
       }
     });
+
   };
 
   return Player;

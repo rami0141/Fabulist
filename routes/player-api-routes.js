@@ -25,6 +25,9 @@ module.exports = function(app) {
 
   // POST route for saving a new Player
   app.post("/api/players", function(req, res) {
+    // console.log('Posting new player');
+    // console.log('req.body is:');
+    // console.log(req.body);
     db.Player.create(req.body).then(function(dbPlayer) {
       res.json(dbPlayer);
     });

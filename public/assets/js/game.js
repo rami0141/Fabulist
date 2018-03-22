@@ -5,6 +5,7 @@ $(document).ready(function() {
 
   // created a variable to store the number of players
   var totalPlayers = 0;
+  var Story_ID = "";
 
   $("#startSubmit").on("click", function(event) {
         event.preventDefault();
@@ -23,6 +24,8 @@ $(document).ready(function() {
         $.post("/api/stories", newGame)
             .done(function(data) {
               console.log(data);
+              Story_ID = data.id;
+              // console.log("Story_ID is: "+Story_ID);
         });
         $("#game-name").val("");
 
@@ -49,16 +52,21 @@ $(document).ready(function() {
       return;
     }
 
+    // console.log("StoryID before upsert is: "+Story_ID);
     upsertPlayer({
       name: $("#player-name")
         .val()
-        .trim()
+        .trim(),
+      email: "email@email.com",
+      StoryId: Story_ID
     });
   }
 
   // A function for creating a player. 
   // Only allowed to create number of players selected
   function upsertPlayer(playerData) {
+    // console.log('playerData is:')
+    // console.log(playerData);
     if( numberOfTurns < totalPlayers-1){
       var name = $("#player-name").val().trim();
       console.log(name);

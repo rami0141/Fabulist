@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   // Creating a one-many relation, Story --> Turn
   // When an Story is deleted, also delete any associated Turns
   Story.associate = function(models) {
+    
     Story.hasMany(models.Turn, {
       onDelete: "cascade"
     });
@@ -18,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
 
-  };
+   };
   
   return Story;
 };
