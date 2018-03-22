@@ -12,37 +12,37 @@ $(document).ready(function() {
   var Story_ID = "";
 
   $("#startSubmit").on("click", function(event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        $(".player-container").fadeIn();
-        $(".hello").hide();
+    $(".player-container").fadeIn();
+    $(".hello").hide();
 
-        var newGame = {
-          name: $("#inlineFormInputName").val().trim()
-        };
-        // number of players
-        totalPlayers = $("#numberOfPlayers").val().trim();
-        console.log(totalPlayers);
+    var newGame = {
+      name: $("#inlineFormInputName").val().trim()
+    };
+    // number of players
+    totalPlayers = $("#numberOfPlayers").val().trim();
+    console.log(totalPlayers);
 
-        //posting newGame to the database
-        $.post("/api/stories", newGame)
-            .done(function(data) {
-              console.log(data);
-              Story_ID = data.id;
-              // console.log("Story_ID is: "+Story_ID);
-        });
-        $("#game-name").val("");
-
+    //posting newGame to the database
+    $.post("/api/stories", newGame)
+      .done(function(data) {
+        console.log(data);
+        Story_ID = data.id;
+        // console.log("Story_ID is: "+Story_ID);
     });
+    $("#game-name").val("");
+
+  });
 
   console.log(totalPlayers);
   var numberOfTurns = 0;
   var nameInput = $("#player-name");
 
   var playerContainer = $(".player-container");
-      
+
   $("#startNow").hide();
- 
+
   $(document).on("submit", "#player-form", handlePlayerFormSubmit);
 
 
@@ -63,38 +63,64 @@ $(document).ready(function() {
       email: "email@email.com",
       StoryId: Story_ID
     });
+    console.log('player array');
+    console.log(playerArr);
   }
 
+
+  var playerArr = [];
   // A function for creating a player. 
+
   // Only allowed to create number of players selected
   function upsertPlayer(playerData) {
     // console.log('playerData is:')
     // console.log(playerData);
-    if( numberOfPlayers < totalPlayers-1){
+
+
+    if( numberOfTurns < totalPlayers-1){
+
       var name = $("#player-name").val().trim();
       console.log(name);
 
       //Should update database??
       $.post("/api/players", playerData)
-          .done(function(data) {
-              console.log(data);
-              Story_ID = data.id;
 
-              // console.log("Story_ID is: "+Story_ID);
-        });
+
+      .done(function(playerData) {
+        console.log('data is:');
+        console.log(playerData);
+        playerArr.push(
+          {
+            name: name,
+            player_ID: playerData.id
+          }
+        );
+      });
+
       
+
       // Add to number of turns
       numberOfTurns++
       // reset input box to nothing
       $("#player-name").val("");
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
-  } else if (numberOfTurns = totalPlayers -1) {
-    var name = $("#player-name").val().trim();
+    }else if (numberOfTurns = totalPlayers -1) {
+      var name = $("#player-name").val().trim();
       console.log(name);
 
       //Database - should update last players name?
-    $.post("/api/players", playerData)
+      $.post("/api/players", playerData)
+      .done(function(playerData) {
+        console.log('data is:');
+        console.log(playerData);
+        playerArr.push(
+          {
+            name: name,
+            player_ID: playerData.id
+          }
+        );
+      });
 
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
@@ -103,7 +129,9 @@ $(document).ready(function() {
       $("#player-name").hide();
       $("#startNow").fadeIn();
     }
-  };
+
+  };  
+
 
 // ------------------------ RANDOM THEME SECTION-------------------------------
 
@@ -122,7 +150,7 @@ $(document).ready(function() {
 
 
 // --------------------- WRITE YOUR STORY SECTION ------------------------------
-  
+
 
 
 
@@ -177,7 +205,9 @@ $(document).ready(function() {
 //   }
 
 
-});
+// });
+
+
 
 
 
@@ -192,7 +222,7 @@ $(document).ready(function() {
  // Get the <span> element that closes the modal
  var span = document.getElementsByClassName("close")[0];
 
- // When the user clicks the button, open the modal 
+ // When the user clicks the button, open the modal
  btn.onclick = function () {
      modal.style.display = "block";
  }
@@ -202,12 +232,10 @@ $(document).ready(function() {
      modal.style.display = "none";
  }
 
- // When the user clicks anywhere outside of the modal, close it
+ //When the user clicks anywhere outside of the modal, close it
  window.onclick = function (event) {
      if (event.target == modal) {
          modal.style.display = "none";
      }
-    }
- 
-
-  
+   }
+ });
