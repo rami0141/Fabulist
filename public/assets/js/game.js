@@ -1,6 +1,7 @@
 
 
 $(document).ready(function() {
+  // --------------------------GAME NAME - NUMBER OF PLAYERS SECTION --------------------
   $(".player-container").hide();
 
   // created a variable to store the number of players
@@ -96,16 +97,27 @@ $(document).ready(function() {
     }
   };
 
-//random word function
-// Random Themes
-function randomThemes() {
-  var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
-  var randomThemes = themes[Math.floor(Math.random() * themes.length)];
-  console.log(randomThemes);
-}
+// ------------------------ RANDOM THEME SECTION-------------------------------
+
+  $(document).on("click", "#startNow", randomThemes);
+
+    function randomThemes() {
+          $("#rule").hide();
+      $("#storiesMenu").hide();
+      var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
+      var randomThemes = themes[Math.floor(Math.random() * themes.length)];
+      var html = "<h2>Story Theme: " + randomThemes + "</h2>";
+      document.querySelector("#random").innerHTML = html;
+    }
 
 });
+
+// --------------------- WRITE YOUR STORY SECTION ------------------------------
   
+
+
+
+
 
 
 
