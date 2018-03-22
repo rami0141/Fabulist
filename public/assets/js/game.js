@@ -87,6 +87,15 @@ $(document).ready(function() {
       $("#startNow").fadeIn();
     }
   };
+
+//random word function
+// Random Themes
+function randomThemes() {
+  var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
+  var randomThemes = themes[Math.floor(Math.random() * themes.length)];
+  console.log(randomThemes);
+}
+
 });
   
 
