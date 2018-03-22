@@ -29,10 +29,14 @@
     <div id="menu">
       <ul class="nav justify-content-center">
   <li class="nav-item">
+
+    <a class="nav-link active" href="#rule">Play Now!</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="main.html">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">About</a>
+    <a class="nav-link" href="#rule">About</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#fstories">Finished Stories</a>
@@ -65,7 +69,7 @@
     <!-- stories -->
     <div class="container">
     <div id="storiesMenu">
-      <h1 class="text-center">Explore finished stories</h1>
+      <h1 class="text-center" id="fstories">Explore finished stories</h1>
       <br>
       <br>
       <!-- 1st row -->
@@ -135,7 +139,7 @@
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content modal-dialog modal-lg ">
+        <div class="modal-content modal-dialog modal-sm ">
             <div class="modal-header mb-3">
                 <h3 class="font-weight-bold">Story Outline</h3>
                 <span class="close">&times;</span>
@@ -166,29 +170,25 @@
                     </div>
                 </div>
              </div>
+            </div>
+
 
            <!-- PLAYERS NAME  -->
      <div class="container">
         <div class="player-container">
          <h1>Players</h1>
          <br>
-         <form>
+         <form id="player-form">
             <div class="form-group row">
               <label for="name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
             <input type="text" class="form-control" id="name"required>
               </div>
               </div>
-              <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-              <input type="email" class="form-control" id="email" required>
-                </div>
-                </div>
               </form>
-                   <br>
-                    <td><button id="team" type="submit" class="btn btn-outline-danger btn-lg mb-3">Create Player</button>
-                    </td>
+                <ol></ol>
+                    <button id="" type="submit" class="btn btn-outline-danger btn-lg mb-3">Create Player</button>
+                    
                   </form>
                 </tr>
               </tbody>
@@ -206,7 +206,13 @@
 
 
     <!-- hidden until game starts -->
-    <div class="container paragraph">
+
+
+    <div class="container">
+      <h1>Create your story</h1>
+      <br>
+
+
       <div class="row">
       <!-- drawing app -->
         <div class="col-lg-6">
@@ -241,10 +247,27 @@
     </div>
 
     <!-- This is where combining all paragraphs will happen -->
+
     <!-- hidden until called upon -->
 
-   <div class="row">
-      <div class="col-md-12 story-container">
+    <div class="container">
+      <div id="story">
+        <h1 id="">
+          <!-- Title  -->
+        </h1>
+        <br>
+        <br>
+        <div id="">
+          <!-- drawing will go here -->
+        </div>
+        <br>
+        <br>
+        <div id="">
+          <!-- paragraph will go here -->
+        </div>
+        <br>
+        <p id=""> author </p>
+
       </div>
     </div>
 
