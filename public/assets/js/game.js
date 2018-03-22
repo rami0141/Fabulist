@@ -38,8 +38,7 @@ $(document).ready(function() {
   console.log(totalPlayers);
   var numberOfTurns = 0;
   var nameInput = $("#player-name");
-  var emailInput = $("#player-email");
-  var playerList = $("tbody");
+
   var playerContainer = $(".player-container");
       
   $("#startNow").hide();
@@ -71,7 +70,7 @@ $(document).ready(function() {
   function upsertPlayer(playerData) {
     // console.log('playerData is:')
     // console.log(playerData);
-    if( numberOfTurns < totalPlayers-1){
+    if( numberOfPlayers < totalPlayers-1){
       var name = $("#player-name").val().trim();
       console.log(name);
 
