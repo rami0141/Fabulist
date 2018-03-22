@@ -80,7 +80,7 @@
                <!--drop down fields-->
             <div id="player-form">
               <select class="custom-select mb-3 transparent-input border border-white" id="numberOfPlayers">
-                   <option selected>Writers</option>
+                   <option selected>Number of Players</option>
                    <option value="1">One</option>
                    <option value="2">Two</option>
                    <option value="3">Three</option>
@@ -103,14 +103,9 @@
     <div class="container">
        <div class="player-container">
         <h1>Players</h1>
-           <table class="table table-striped">
-             <thead>
-               <tr>
-                 <th>Name</th>
-  
-               </tr>
-            </thead>
-             <tbody>
+          <ol>
+            <h6>Player Name:</h6>
+          </ol>
                <tr id="form-row">
                  <form id="player-form">
                   <td colspan="4">
@@ -199,6 +194,26 @@
   </div>
   <br>
   <br>
+
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+      
+        <form id="cms">
+          <div class="form-group">
+            <br />
+            <label for="body">Story:</label>
+            <textarea placeholder="Post Body" class="form-control" rows="10" id="body"></textarea>
+            <div class="form-group">
+              <label for="category">Select Author:</label>
+              <select class="form-control" id="author">
+              </select>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
 
   <!-- footer -->
