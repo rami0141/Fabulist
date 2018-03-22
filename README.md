@@ -23,7 +23,7 @@
 * [Joe Semlak](https://github.com/semlak) Testing
 * [Cristina Zhang](https://github.com/rami0141) Gameplay
 
-
+<br>
 
 ### **Requirements**
 Users must have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [MySQL](https://www.mysql.com/downloads/) and [Node.js](https://nodejs.org/en/download/) installed before completing these instructions.
@@ -31,7 +31,7 @@ Users must also follow the steps in `AWS User Setup` before installing Fabulist.
 
 ### **AWS User Setup Steps:**
 
-(These instructions are modified from fishcharlie's instructions here: [ExpressFileUploadS3Example](https://github.com/fishcharlie/ExpressFileUploadS3Example))
+(These instructions are modified from fishcharlie's instructions here: [ExpressFileUploadS3Example](https://github.com/fishcharlie/ExpressFileUploadS3Example)) 
 1.  Create an [Amazon Web Services (AWS)](https://aws.amazon.com) account.
 2.  Once at the main AWS dashboard search for the `IAM` service or scroll down to find the `IAM` service and select that.
 3.  On the left panel of the `IAM` service select `Users`.
@@ -61,6 +61,8 @@ Users must also follow the steps in `AWS User Setup` before installing Fabulist.
 9.  Click `Next`.
 10. Click `Create bucket`.
 
+For more information about setting up AWS S3, go [here](https://aws.amazon.com/documentation/s3/).<br><br>
+
 ### **Installing Fabulist**
 
 1) From git bash, Terminal or Command Prompt, clone this repository to a directory on your computer.
@@ -84,7 +86,7 @@ MYSQL_PASSWORD=?????????
 MYSQL_USERNAME=?????????
 AWS_SECRET_ACCESS_KEY:??????????????????????????????????????????
 AWS_ACCESS_KEY_ID:?????????????????
-S3BUCKET:fabulist-images,
+S3BUCKET:fabulist-images
 
 ```
 

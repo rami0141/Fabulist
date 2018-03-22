@@ -22,11 +22,13 @@ module.exports = function(sequelize, DataTypes) {
   });
     
     Turn.associate = function(models){
+
       Turn.belongsTo(models.Player, {
         foreignKey: {
           allowNull: false
         }
-      });    
+      }); 
+         
       Turn.belongsTo(models.Story, {
         foreignKey: {
           allowNull: false
