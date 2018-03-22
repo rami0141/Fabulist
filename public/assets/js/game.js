@@ -2,7 +2,10 @@
 
 $(document).ready(function() {
   // --------------------------GAME NAME - NUMBER OF PLAYERS SECTION --------------------
+  $(".paragraph").hide();
   $(".player-container").hide();
+
+
 
   // created a variable to store the number of players
   var totalPlayers = 0;
@@ -74,6 +77,12 @@ $(document).ready(function() {
 
       //Should update database??
       $.post("/api/players", playerData)
+          .done(function(data) {
+              console.log(data);
+              Story_ID = data.id;
+
+              // console.log("Story_ID is: "+Story_ID);
+        });
       
       // Add to number of turns
       numberOfTurns++
@@ -100,17 +109,18 @@ $(document).ready(function() {
 // ------------------------ RANDOM THEME SECTION-------------------------------
 
   $(document).on("click", "#startNow", randomThemes);
+    $(".paragraph").fadeIn();
 
     function randomThemes() {
-          $("#rule").hide();
+      $("#rule").hide();
       $("#storiesMenu").hide();
-      var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
+      var themes = ["Coco the Dog", "Nala the Cat", "Pepperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
       var randomThemes = themes[Math.floor(Math.random() * themes.length)];
       var html = "<h2>Story Theme: " + randomThemes + "</h2>";
       document.querySelector("#random").innerHTML = html;
     }
 
-});
+
 
 // --------------------- WRITE YOUR STORY SECTION ------------------------------
   
@@ -118,6 +128,57 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
+
+
+
+
+// ---------------------------- SHOW ALL POSTS ---------------------------------
+
+  // blogContainer holds all of our posts
+//   var storyContainer = $(".story-container");
+//   var postCategorySelect = $("#category");
+
+//   // Variable to hold our posts
+//   var posts;
+
+//     // The code below handles the case where we want to get blog posts for a specific author
+//   // Looks for a query param in the url for author_id
+//   var url = window.location.search;
+//   var playerId;
+//   if (url.indexOf("?player_id=") !== -1) {
+//     playerId = url.split("=")[1];
+//     getPosts(playerId);
+//   }
+//   // If there's no authorId we just get all posts as usual
+//   else {
+//     getPosts();
+//   }
+
+//   // This function grabs posts from the database and updates the view
+//    function getPosts(player) {
+//     playerId = player || "";
+//     if (playerId) {
+//       playerId = "/?player_id=" + playerId;
+//     }
+//     $.get("/api/turns" + playerId, function(data) {
+//       console.log("Posts", data);
+//       posts = data;
+//       if (!posts || !posts.length) {
+//         displayEmpty(player);
+//       }
+//       else {
+//         initializeRows();
+//       }
+//     });
+//   }
+
+
+// });
 
 
 
