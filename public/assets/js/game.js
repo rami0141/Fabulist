@@ -41,9 +41,9 @@ $(document).ready(function() {
   var emailInput = $("#player-email");
   var playerList = $("tbody");
   var playerContainer = $(".player-container");
-      
+
   $("#startNow").hide();
- 
+
   $(document).on("submit", "#player-form", handlePlayerFormSubmit);
 
 
@@ -66,7 +66,7 @@ $(document).ready(function() {
     });
   }
 
-  // A function for creating a player. 
+  // A function for creating a player.
   // Only allowed to create number of players selected
   function upsertPlayer(playerData) {
     // console.log('playerData is:')
@@ -83,7 +83,7 @@ $(document).ready(function() {
 
               // console.log("Story_ID is: "+Story_ID);
         });
-      
+
       // Add to number of turns
       numberOfTurns++
       // reset input box to nothing
@@ -123,7 +123,7 @@ $(document).ready(function() {
 
 
 // --------------------- WRITE YOUR STORY SECTION ------------------------------
-  
+
 
 
 
@@ -193,7 +193,7 @@ $(document).ready(function() {
  // Get the <span> element that closes the modal
  var span = document.getElementsByClassName("close")[0];
 
- // When the user clicks the button, open the modal 
+ // When the user clicks the button, open the modal
  btn.onclick = function () {
      modal.style.display = "block";
  }
@@ -203,12 +203,10 @@ $(document).ready(function() {
      modal.style.display = "none";
  }
 
- // When the user clicks anywhere outside of the modal, close it
+ //When the user clicks anywhere outside of the modal, close it
  window.onclick = function (event) {
      if (event.target == modal) {
          modal.style.display = "none";
      }
-    }
- 
-
-  
+   }
+ });
