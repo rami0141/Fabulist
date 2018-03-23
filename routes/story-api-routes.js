@@ -3,16 +3,18 @@ var db = require("../models");
 module.exports = function(app) {
   app.get("/api/stories", function(req, res) {
     db.Story.findAll({
-    }).then(function(dbStory) {
-      res.json(dbStory);
+      include: [db.Turn, db.Player]
+    }).then(function(stories) {
+      res.json(stories)
     });
   });
 
   app.get("/api/stories/:id", function(req, res) {
     db.Story.findOne({
       where: {
-        id: req.params.id
+        id: req.params.id,
       },
+      include: [db.Turn, db.Player]
     }).then(function(dbStory) {
       res.json(dbStory);
     });
