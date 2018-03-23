@@ -122,58 +122,14 @@
     </div>
     </div>
 
-    <!-- This will where the random theme will show -->
-    <div id="random"></div>
-    <!-- hidden until game starts -->
+<!--stories scroll-->
     <div class="container">
-        <h1>Create your story</h1>
-        <br>
-      <div class="row">
-      <!-- drawing app -->
-        <div class="col-lg-6">
-          <!-- canvas -->
-      <div class="example" data-example="3">
-        <div class="board" id="custom-board-2" style="width: 450px; height: 500px;">
-        </div>
-      </div>
       <br>
-        </div>
-      <!-- text box -->
-      <div class="col-lg-6">
-        <form id="cms">
-          <div class="form-group">
-          
-            <label for="body">Write your paragraph:</label>
-            <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
-            <br />
-            <form>
-                <div class="form-group row">
-                  <i class="fas fa-user-circle fa-2x col-sm-2"></i>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="author" placeholder="author" required>
-                    </div>
-                  </div>
-              </form>
-              <br>
-            <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    </div>
-    <!-- This is where combining all paragraphs will happen -->
-    <!-- hidden until called upon -->
-  <!-- stories -->
-  <div class="container">
-      <div id="story">
-          <h1 id="">
-            <!-- Title  -->
-          </h1>
-    <br>
-    <br>
-    <div id="">
-        <!-- drawing will go here -->
-    <!-- 1st row -->
+      <br>
+      <h1 class="text-center">Explore Finished Stories</h1>
+      <br>
+      <br>
+      <!-- 1st row -->
     <div class="row">
       <div class="col-md-4">
         <div class="card">
@@ -232,6 +188,66 @@
   </div>
   <br>
   <br>
+
+  <!-- hidden until game starts -->
+  <div class="container">
+    <br>
+    <!-- This will where the random theme will show -->
+    <div id="random" class="text-center"></div>
+    <br>
+      <h1>Create your story</h1>
+      <br>
+    <div class="row">
+    <!-- drawing app -->
+      <div class="col-lg-6">
+        <!-- canvas -->
+    <div class="example" data-example="3">
+      <div class="board" id="custom-board-2" style="width: 450px; height: 500px;">
+      </div>
+    </div>
+    <br>
+      </div>
+    <!-- text box -->
+    <div class="col-lg-6">
+      <form id="cms">
+        <div class="form-group">
+          <label for="body">Write your paragraph:</label>
+          <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
+          <br />
+          <form>
+              <div class="form-group row">
+                <i class="fas fa-user-circle fa-2x col-sm-2"></i>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="author" placeholder="author" required>
+                  </div>
+                </div>
+            </form>
+            <br>
+            <!-- submit button -->
+          <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- This is where combining all paragraphs will happen -->
+  <!-- hidden until called upon -->
+<!-- stories -->
+<div class="container">
+    <div id="story">
+        <h1 id="">
+          <!-- Title  -->
+        </h1>
+  <br>
+  <br>
+  <div id="">
+      <!-- drawing will go here -->
+    </div>
+  </div>
+
+  
   <!-- footer -->
   <footer>
     <hr>
