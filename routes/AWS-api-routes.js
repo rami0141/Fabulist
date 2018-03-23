@@ -48,6 +48,7 @@ module.exports = function(app) {
         s3Params: {
           Bucket: 'fabulist-images',
           Key: newFileName, // File path of location on S3
+          ACL: 'public-read'
         },
       };
       console.log(params);
