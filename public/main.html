@@ -11,7 +11,7 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   <!-- drawing board css -->
-    <link rel="stylesheet" href="../test/drawing-app/bower_components/drawingboard.js/dist/drawingboard.min.css">
+  <link rel="stylesheet" href="../test/drawing-app/bower_components/drawingboard.js/dist/drawingboard.min.css">
   <!-- Jquery and Bootstrap js styling -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
@@ -39,6 +39,8 @@
 </ul>
     </div>
   </nav>
+
+
   <!-- play content and rule -->
   <div id="rule">
     <div class="container">
@@ -64,6 +66,7 @@
    <!-- The Modal -->
    <div id="myModal" class="modal">
        <!-- Modal content -->
+  
        <div class="modal-content modal-dialog modal-lg ">
            <div class="modal-header mb-3">
                <h3 class="font-weight-bold">Story Outline</h3>
@@ -120,8 +123,59 @@
        </div>
      </div>
     </div>
+  </div>
+    <!-- This will where the random theme will show -->
+    
+    <!-- hidden until game starts -->
+    <div class="container">
+        <h1>Create your story</h1>
+        <div id="random"></div>
+        <br>
+      <div class="row">
+      <!-- drawing app -->
+        <div class="col-lg-6">
+          <!-- canvas -->
+      <div class="example" data-example="3">
+        <div class="board" id="custom-board-2" style="width: 450px; height: 500px;">
+        </div>
+      </div>
+      <br>
+        </div>
+      <!-- text box -->
+      <div class="col-lg-6">
+        <form id="cms">
+          <div class="form-group">
+          
+            <label for="body">Write your paragraph:</label>
+            <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
+            <br />
+            <form>
+                <div class="form-group row">
+                  <i class="fas fa-user-circle fa-2x col-sm-2"></i>
+                  </div>
+              </form>
+              <br>
+            <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
-
+    </div>
+    <!-- This is where combining all paragraphs will happen -->
+    <!-- hidden until called upon -->
+    <!-- stories -->
+    <div class="container">
+      <div id="story">
+          <h1 id="">
+            <!-- Title  -->
+          </h1>
+    <br>
+    <br>
+    <div id="">
+        <!-- drawing will go here -->
+    <!-- 1st row -->
+    <div class="row" id="fstories">
+      
 <!--stories scroll-->
     <div class="container">
       <br>
