@@ -1,5 +1,8 @@
 # Fabulist
 
+<img src="public/assets/images/welcome_to_fabulist.png" alt="Fabulist Welcome Screen">
+
+<span style="color: #4a4e69; font-size: 30px">Fabulist</span><span> is a collaborative story telling game in the style of [Exquisite Corpse](https://en.wikipedia.org/wiki/Exquisite_corpse), the parlor game [Consequences](https://en.wikipedia.org/wiki/Consequences_(game)) and [Mad Libs](https://en.wikipedia.org/wiki/Mad_Libs).  Any number of people can play. Fabulist is a game where participants take turns writing paragraphs of a story. If a player wants, they can draw an illustration in their turn instead of writing a paragraph. After each player has gone three times, the story is stitched together and displayed.</span>
 
 ## Deployed
 
@@ -60,38 +63,23 @@ Users must also follow the steps in `AWS User Setup` before installing Fabulist.
 8.  Under the drop down for `Manage public permissions` select `Not Public`.
 9.  Click `Next`.
 10. Click `Create bucket`.
-11. Click on the new bucket. Select the **Permissions** tab, then `Bucket Policy`.
-12. Paste this policy into the `Bucket Policy Editor' and save.
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AddPerm",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::fabulist-images/*"
-        }
-    ]
-}
-```
 
 For more information about setting up AWS S3, go [here](https://aws.amazon.com/documentation/s3/).<br><br>
 
-### **Installing Fabulist**
+## **Installing Fabulist**
 
 1) From git bash, Terminal or Command Prompt, clone this repository to a directory on your computer.
 
 
 git clone https://github.com/rami0141/Fabulist
 
-# change to the application direction
+## change to the application directory
+
 ```
 cd Fabulist
 ```
 
-# install the required packages
+## install the required packages
 ```
 npm install
 ```
@@ -110,7 +98,7 @@ Replace the question marks with your MySQL password and username (without these 
 Replace the question marks for the AWS fields with your secret access key and access key ID obtained above in `AWS User Setup Steps`.  If you named your S3 bucket something other than 'fabulist-images', replace that for the S3BUCKET field.
 
 
-### **Setting up the MySQL database**
+## **Setting up the MySQL database**
 
 1) Log in to MySQL Workbench.  From the home screen, create a new connection by clicking the + symbol beside 'MySQL Connections'.  Name the connection 'fabulist_db'.
 
@@ -122,30 +110,30 @@ Replace the question marks for the AWS fields with your secret access key and ac
  ```
 
 
-### npm scripts
+## **npm scripts**
 
-# run server
+## run server
 ```
 npm start
 ```
-# run tests (see below)
+## run tests (see below)
 ```
 npm test
 ```
-# initialize database and seed with sample data
+## initialize database and seed with sample data
 ```
 npm run seed
 ```
-# or, from project root
+## or, from project root
 ```
 node db/seedWithSequelize
 ```
-# reinitialize databases with Sequelize Models (doesn't populate tables)
+## reinitialize databases with Sequelize Models (doesn't populate tables)
 ```
 npm run syncDBModels
 ```
 
-### Running Tests
+## Running Tests
 To run tests:
 ```
 npm test
@@ -154,7 +142,7 @@ npm test
 Note that right now the data that is inserted during tests is not removed. You can avoid messing up your main production and development database by switching to the test database (make sure to create 'database_test') before running tests.
 
 
-# load test environment variable, which forces tests to use 'development_test' database. Make sure you have created it first.
+ load test environment variable, which forces tests to use 'development_test' database. Make sure you have created it first.
 ```
 export NODE_ENV=test
 npm test
@@ -165,7 +153,7 @@ Setting the NODE_ENV variable like that is specific to each terminal, so you can
 ```
 export NODE_ENV=test
 ```
-# or just close terminal
+ or just close terminal
 
 
 
