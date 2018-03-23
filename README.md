@@ -2,7 +2,7 @@
 
 <img src="public/assets/images/welcome_to_fabulist.png" alt="Fabulist Welcome Screen">
 
-<span style="color: #4a4e69; font-size: 30px">Fabulist</span><span> is a collaborative story telling game in the style of [Exquisite Corpse](https://en.wikipedia.org/wiki/Exquisite_corpse), the parlor game [Consequences](https://en.wikipedia.org/wiki/Consequences_(game)) and [Mad Libs](https://en.wikipedia.org/wiki/Mad_Libs).  Any number of people can play. Fabulist is a game where participants take turns writing paragraphs of a story. If a player wants, they can draw an illustration in their turn instead of writing a paragraph. After each player has gone three times, the story is stitched together and displayed.</span>
+***Fabulist*** is a collaborative story telling game in the style of [Exquisite Corpse](https://en.wikipedia.org/wiki/Exquisite_corpse), the parlor game [Consequences](https://en.wikipedia.org/wiki/Consequences_(game)) and [Mad Libs](https://en.wikipedia.org/wiki/Mad_Libs).  Any number of people can play. Fabulist is a game where participants take turns writing paragraphs of a story. If a player wants, they can draw an illustration in their turn instead of writing a paragraph. After each player has gone three times, Fabulist stitches the parts together into one story.  Hilarity ensues.</span>
 
 ## Deployed
 
