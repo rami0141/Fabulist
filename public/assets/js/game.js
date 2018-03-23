@@ -110,27 +110,42 @@ $(document).ready(function() {
           {
             name: name,
             player_ID: playerData.id
-          }
-        );
+          });
       });
 
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
        // reset input box to nothing
-      $("#team").hide();
+      $("#rules").hide();
       $("#player-name").hide();
       $("#startNow").fadeIn();
     }
 
   };  
 
+  // --------------RANDOM THEME -------------------------------
+    $(document).on("click", "#startNow", randomThemes);
+
   //random word function
   // Random Themes
   function randomThemes() {
     var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
     var randomThemes = themes[Math.floor(Math.random() * themes.length)];
+    $("#random").append("<h5> Story Theme: " + randomThemes + "</h5>");
     console.log(randomThemes);
   }
+
+// ------------------ GAME ---------------------------------
+//current player and playerID
+
+// function playStory() {
+
+// }
+
+
+
+
+
 
 });  // End of document.ready function
   
