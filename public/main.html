@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
   <!-- drawing board css -->
   <link rel="stylesheet" href="../test/drawing-app/bower_components/drawingboard.js/dist/drawingboard.min.css">
   <!-- Jquery and Bootstrap js styling -->
@@ -69,7 +72,7 @@
 
        <div class="modal-content modal-dialog modal-lg ">
            <div class="modal-header mb-3">
-               <h3 class="font-weight-bold">Story Outline</h3>
+               <h3 class="font-weight-bold">New Game</h3>
                <span class="close">&times;</span>
            </div>
            <div class="modal-body">
@@ -107,9 +110,10 @@
           </ol>
                <tr id="form-row">
                  <form id="player-form">
-                  <td colspan="4">
+                  <td colspan="4" class="row">
                     <label class="sr-only" for="inlineFormInputName">Player Name</label>
-                     <input placeholder="Enter a name" id="player-name" type="text" /> <br>
+                     <input id="player-name" type="text" placeholder="Enter a name">
+                     <br>
                   </td>
                   <br>
                    <td><button id="team" type="submit" class="btn btn-outline-danger btn-lg mb-3">Create Player</button>
@@ -122,6 +126,62 @@
          </div>
        </div>
      </div>
+    </div>
+  </div>
+
+  <!-- hidden until game starts -->
+  <div class="container">
+    <br>
+    <!-- This will where the random theme will show -->
+    <div id="random" class="text-center"></div>
+    <br>
+      <h1>Create your story</h1>
+      <br>
+    <div class="row">
+    <!-- drawing app -->
+      <div class="col-lg-6">
+        <!-- canvas -->
+    <div class="example" data-example="3">
+      <div class="board" id="custom-board-2" style="width: 450px; height: 500px;">
+      </div>
+    </div>
+    <br>
+      </div>
+    <!-- text box -->
+    <div class="col-lg-6">
+      <form id="cms">
+        <div class="form-group">
+          <label for="body">Write your paragraph:</label>
+          <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
+          <br />
+          <form>
+              <div class="form-group row">
+                <i class="fas fa-user-circle fa-2x col-sm-2"></i>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="author" placeholder="author" required>
+                  </div>
+                </div>
+            </form>
+            <br>
+            <!-- submit button -->
+          <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+  <!-- This is where combining all paragraphs will happen -->
+  <!-- hidden until called upon -->
+<!-- stories -->
+<div class="container">
+    <div id="story">
+        <h1 id="">
+          <!-- Title  -->
+        </h1>
+  <br>
+  <br>
+  <div id="">
+      <!-- drawing will go here -->
     </div>
   </div>
 
@@ -191,62 +251,6 @@
   </div>
   <br>
   <br>
-
-  <!-- hidden until game starts -->
-  <div class="container">
-    <br>
-    <!-- This will where the random theme will show -->
-    <div id="random" class="text-center"></div>
-    <br>
-      <h1>Create your story</h1>
-      <br>
-    <div class="row">
-    <!-- drawing app -->
-      <div class="col-lg-6">
-        <!-- canvas -->
-    <div class="example" data-example="3">
-      <div class="board" id="custom-board-2" style="width: 450px; height: 500px;">
-      </div>
-    </div>
-    <br>
-      </div>
-    <!-- text box -->
-    <div class="col-lg-6">
-      <form id="cms">
-        <div class="form-group">
-          <label for="body">Write your paragraph:</label>
-          <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
-          <br />
-          <form>
-              <div class="form-group row">
-                <i class="fas fa-user-circle fa-2x col-sm-2"></i>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="author" placeholder="author" required>
-                  </div>
-                </div>
-            </form>
-            <br>
-            <!-- submit button -->
-          <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  </div>
-  <!-- This is where combining all paragraphs will happen -->
-  <!-- hidden until called upon -->
-<!-- stories -->
-<div class="container">
-    <div id="story">
-        <h1 id="">
-          <!-- Title  -->
-        </h1>
-  <br>
-  <br>
-  <div id="">
-      <!-- drawing will go here -->
-    </div>
-  </div>
 
   <!-- footer -->
   <footer>
