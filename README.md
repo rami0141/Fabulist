@@ -60,6 +60,22 @@ Users must also follow the steps in `AWS User Setup` before installing Fabulist.
 8.  Under the drop down for `Manage public permissions` select `Not Public`.
 9.  Click `Next`.
 10. Click `Create bucket`.
+11. Click on the new bucket. Select the **Permissions** tab, then `Bucket Policy`.
+12. Paste this policy into the `Bucket Policy Editor' and save.
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AddPerm",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::fabulist-images/*"
+        }
+    ]
+}
+```
 
 For more information about setting up AWS S3, go [here](https://aws.amazon.com/documentation/s3/).<br><br>
 
@@ -67,27 +83,27 @@ For more information about setting up AWS S3, go [here](https://aws.amazon.com/d
 
 1) From git bash, Terminal or Command Prompt, clone this repository to a directory on your computer.
 
-```
+
 git clone https://github.com/rami0141/Fabulist
 
 # change to the application direction
+```
 cd Fabulist
+```
 
 # install the required packages
+```
 npm install
-
 ```
 
 Users will need to add a file named '.env' to the project folder.
 Add these lines to the file:
-
 ```
 MYSQL_PASSWORD=?????????
 MYSQL_USERNAME=?????????
-AWS_SECRET_ACCESS_KEY:??????????????????????????????????????????
-AWS_ACCESS_KEY_ID:?????????????????
-S3BUCKET:fabulist-images
-
+AWS_SECRET_ACCESS_KEY=??????????????????????????????????????????
+AWS_ACCESS_KEY_ID=?????????????????
+S3BUCKET=fabulist-images (or your bucket name if different)
 ```
 
 Replace the question marks with your MySQL password and username (without these variables, the app will still try to run with default user is root, and password as NULL)<br>
@@ -100,26 +116,34 @@ Replace the question marks for the AWS fields with your secret access key and ac
 
 2) Click the new connection box to open it.  From the File menu, select 'Open SQL Script'.  Navigate to your project folder/db and select schema.sql.  Run the code to create the database.
 
-3) To seed database, 'npm run seed'.
+3) To seed database,
+ ```
+    npm run seed
+ ```
 
 
 ### npm scripts
-```
+
 # run server
+```
 npm start
-
+```
 # run tests (see below)
+```
 npm test
-
+```
 # initialize database and seed with sample data
+```
 npm run seed
+```
 # or, from project root
+```
 node db/seedWithSequelize
-
+```
 # reinitialize databases with Sequelize Models (doesn't populate tables)
+```
 npm run syncDBModels
 ```
-
 
 ### Running Tests
 To run tests:
@@ -129,8 +153,9 @@ npm test
 
 Note that right now the data that is inserted during tests is not removed. You can avoid messing up your main production and development database by switching to the test database (make sure to create 'database_test') before running tests.
 
-```
+
 # load test environment variable, which forces tests to use 'development_test' database. Make sure you have created it first.
+```
 export NODE_ENV=test
 npm test
 ```
@@ -139,11 +164,12 @@ Setting the NODE_ENV variable like that is specific to each terminal, so you can
 
 ```
 export NODE_ENV=test
-# or just close terminal
 ```
+# or just close terminal
 
 
-Note that although karma is installed, we are having problems when trying to run tests with Karma that involve using the database connection, so the tests should be run manually (```npm test```).
+
+Note that although karma is installed, we are having problems when trying to run tests with Karma that involve using the database connection, so the tests should be run manually (`npm test).
 
 
 ## Copyright
