@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/rami0141/Fabulist#readme",
   "dependencies": {
+    "aws-sdk": "^2.213.1",
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
