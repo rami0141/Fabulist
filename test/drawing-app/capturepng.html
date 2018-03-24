@@ -10,10 +10,11 @@
 
     <!-- canvas -->
 <div class="example" data-example="3">
-  <div class="board" id="custom-board-2" style="width: 600px; height: 600px;">
-    
+  <div class="board img" id="custom-board-2" style="width: 600px; height: 600px;">
+
   </div>
 </div>
+<br>
 
 
 <!-- js -->
@@ -21,7 +22,10 @@
 <script src="bower_components/simple-undo/lib/simple-undo.js"></script>
 <script src="bower_components/drawingboard.js/dist/drawingboard.min.js"></script>
 
-<!-- logic -->
+<!-- html2canvas -->
+<!-- <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script> -->
+
+<!-- logic for drawing board-->
 <script data-example="3">
   var customBoard2 = new DrawingBoard.Board('custom-board-2', {
     controls: [
@@ -74,6 +78,34 @@
     }
   });
 </script>
+
+<!-- logic to download png -->
+<!-- <script>
+$(document).ready(function(){
+
+
+var element = $(".img"); // global variable
+var getCanvas; // global variable
+
+$("#btn-Preview-Image").on('click', function () {
+         html2canvas(element, {
+         onrendered: function (canvas) {
+                $("#previewImage").append(canvas);
+                getCanvas = canvas;
+             }
+         });
+    });
+
+	$("#btn-Convert-Html2Image").on('click', function () {
+    var imgageData = getCanvas.toDataURL("image/png");
+    // Now browser starts downloading it instead of just showing it
+    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+    $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+	});
+
+});
+
+</script> -->
 
 
 </body>
