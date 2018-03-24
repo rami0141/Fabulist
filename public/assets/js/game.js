@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-  //$("#hideThis").hide();
+  $("#hideThis").hide();
   $(".player-container").hide();
  
 
@@ -134,7 +134,7 @@ $(document).ready(function() {
   // Random Themes
   function randomThemes() {
     $("#hideThis").fadeIn();
-    var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
+    var themes = ["Coco the Dog", "Nala the Cat", "Pepperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise", "Coding Bootcamp", "Dwayne Johnson", "Korean Bbq"];
     var randomThemes = themes[Math.floor(Math.random() * themes.length)];
     $("#random").append("<h4> Story Theme: " + randomThemes + "</h4>");
     console.log(randomThemes);
@@ -203,12 +203,14 @@ function playerTurn() {
     }
       console.log(bodyInput);
 
+
       var newStoryPost = {
         body: bodyInput.val().trim()
         //name, player_ID, StoryID? 
       }
       console.log(newStoryPost);
       $("#bodyInput").val("");
+      $(".showParagraphHere").append("<p>" + newStoryPost.body + "</p>");
     };
 
     //Submits a new post - adds player name, player_ID and StoryID
