@@ -140,7 +140,7 @@ $(document).ready(function() {
     $("#random").append("<h2> Story Theme: " + randomThemes + "</h2>");
     console.log(randomThemes);
     //This will display the first player in the array in html
-   $(".current-player").html("<h4>" + playerArr[0].name + "</h4>");
+    $(".current-player").html("<h4>" + playerArr[0].name + "</h4>");
   }
 
 
@@ -185,9 +185,11 @@ function playerTurn() {
     //adds a turn
     pturns++;
 
+
   }
   else {
     //will invoke the function that combines all paragraphs
+    $(".last").hide();
     console.log("Done")
   }
 }
@@ -267,6 +269,9 @@ function playerTurn() {
          modal.style.display = "none";
      }
     }
- 
+  $('#startNow').click(function(event) {
+    modal.style.display = "none";
+
+})
 
   
