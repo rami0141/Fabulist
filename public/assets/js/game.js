@@ -134,9 +134,10 @@ $(document).ready(function() {
   // Random Themes
   function randomThemes() {
     $("#hideThis").fadeIn();
+    $("#rule").hide();
     var themes = ["Coco the Dog", "Nala the Cat", "Pepperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise", "Coding Bootcamp", "Dwayne Johnson", "Korean Bbq"];
     var randomThemes = themes[Math.floor(Math.random() * themes.length)];
-    $("#random").append("<h4> Story Theme: " + randomThemes + "</h4>");
+    $("#random").append("<h2> Story Theme: " + randomThemes + "</h2>");
     console.log(randomThemes);
     //This will display the first player in the array in html
    $(".current-player").html("<h4>" + playerArr[0].name + "</h4>");
