@@ -126,7 +126,7 @@
   </div>
 
   <!-- hidden until game starts -->
-  <div class="container">
+  <div class="container" id="hideThis">
     <br>
     <!-- This will where the random theme will show -->
     <div id="random" class="text-center"></div>
@@ -136,31 +136,43 @@
     <div class="row">
     <!-- drawing app -->
       <div class="col-lg-6">
-        <!-- canvas -->
-    <div class="example" data-example="3">
-      <div class="board" id="custom-board-2" style="width: 450px; height: 500px;">
-      </div>
-    </div>
-    <br>
+
+        <form id="cms">
+          <div class="form-group">
+            <div class="current-player"></div>
+            <label for="body">Write your paragraph:</label>
+            <textarea placeholder="250 characters max" class="form-control" rows="10" maxlength="250"></textarea>
+            <br />
+            <form>
+                <div class="form-group row">
+                  <i class="fas fa-user-circle fa-2x col-sm-2"></i>
+                  </div>
+              </form>
+              <br>
+            <button type="submit" class="btn btn-outline-danger btn-lg mb-3" >Submit</button>
+          </div>
+        </form>
+
       </div>
     <!-- text box -->
     <div class="col-lg-6">
       <form id="cms">
         <div class="form-group">
+          <div class="current-player"></div>
           <label for="body">Write your paragraph:</label>
-          <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
+          <textarea placeholder="250 characters max" class="form-control" rows="10" id="bodyInput" maxlength="250"></textarea>
           <br />
           <form>
               <div class="form-group row">
                 <i class="fas fa-user-circle fa-2x col-sm-2"></i>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="author" placeholder="author" required>
+                    <input type="text" class="form-control" id="author" placeholder="author">
                   </div>
                 </div>
             </form>
             <br>
             <!-- submit button -->
-          <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
+          <button type="submit" id="post" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
         </div>
       </form>
     </div>

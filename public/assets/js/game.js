@@ -1,7 +1,9 @@
 
 
 $(document).ready(function() {
+  //$("#hideThis").hide();
   $(".player-container").hide();
+ 
 
   // created a variable to store the number of players
   var totalPlayers = 0;
@@ -97,6 +99,7 @@ $(document).ready(function() {
       $("#player-name").val("");
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
+
     }else if (numberOfTurns = totalPlayers -1) {
       var name = $("#player-name").val().trim();
       console.log(name);
@@ -116,7 +119,7 @@ $(document).ready(function() {
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
        // reset input box to nothing
-      $("#rules").hide();
+      $("#team").hide();
       $("#player-name").hide();
       $("#startNow").fadeIn();
     }
@@ -125,23 +128,104 @@ $(document).ready(function() {
 
   // --------------RANDOM THEME -------------------------------
     $(document).on("click", "#startNow", randomThemes);
+    
 
   //random word function
   // Random Themes
   function randomThemes() {
+    $("#hideThis").fadeIn();
     var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
     var randomThemes = themes[Math.floor(Math.random() * themes.length)];
-    $("#random").append("<h5> Story Theme: " + randomThemes + "</h5>");
+    $("#random").append("<h4> Story Theme: " + randomThemes + "</h4>");
     console.log(randomThemes);
+    //This will display the first player in the array in html
+   $(".current-player").html("<h4>" + playerArr[0].name + "</h4>");
   }
+
 
 // ------------------ GAME ---------------------------------
 //current player and playerID
+//playerArr
 
-// function playStory() {
+    
+  $(document).on("click", "#post", playerTurn);
+  var bodyInput = $("#bodyInput");
+  var sequence=0;
+  var pturns = 0;
+  var i = 0;
+  
 
-// }
+function playerTurn() {
 
+  // each player is given 3 turns
+  if (pturns < 3 && i < playerArr.length - 1) {
+      //stored players in array in a variable
+      var playerNextName = playerArr[i+1].name;
+      // order
+      sequence++
+      //This will display the players in the array in html
+      $(".current-player").html("<h4>" + playerNextName + "</h4>");
+
+      //console.log(playerNextName);
+      i++
+
+      //Need to post 
+      postStory();
+
+    }
+    // moves the turns
+    // if all players all looped through, pturns increases
+  else if (pturns < 3) {
+    sequence++
+    $(".current-player").html("<h4>" + playerArr[0].name + "</h4>");
+    postStory();
+    console.log(sequence);
+    i = 0;
+    //adds a turn
+    pturns++;
+
+  }
+  else {
+    //will invoke the function that combines all paragraphs
+    console.log("Done")
+  }
+}
+    
+
+// -------------- posting stories -------
+    //This function handles what happens when a paragraph is submitted
+    function postStory() {
+      event.preventDefault();
+
+      // This will grab what is in the input box
+      if(!bodyInput.val().trim()) {
+        return;
+    }
+      console.log(bodyInput);
+
+      var newStoryPost = {
+        body: bodyInput.val().trim()
+        //name, player_ID, StoryID? 
+      }
+      console.log(newStoryPost);
+      $("#bodyInput").val("");
+    };
+
+    //Submits a new post - adds player name, player_ID and StoryID
+    // function submitPost(post) {
+    //   $.post("/api/turns", post)
+    //     .done(function(playerData) {
+    //     console.log('data is:');
+    //     console.log(playerData);
+    //     playerArr.push(
+    //     {
+    //       name: name,
+    //       player_ID: playerData.id
+    //     })
+    //   })
+    // };
+
+    //------------------ DISPLAY ALL PARAGRAPHS ------------
 
 
 
