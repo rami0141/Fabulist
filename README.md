@@ -1,5 +1,8 @@
 # Fabulist
 
+<img src="public/assets/images/welcome_to_fabulist.png" alt="Fabulist Welcome Screen">
+
+***Fabulist*** is a collaborative story telling game in the style of [Exquisite Corpse](https://en.wikipedia.org/wiki/Exquisite_corpse), the parlor game [Consequences](https://en.wikipedia.org/wiki/Consequences_(game)) and [Mad Libs](https://en.wikipedia.org/wiki/Mad_Libs).  Any number of people can play. Fabulist is a game where participants take turns writing paragraphs of a story. If a player wants, they can draw an illustration in their turn instead of writing a paragraph. After each player has gone three times, Fabulist stitches the parts together into one story.  Hilarity ensues.</span>
 
 ## Deployed
 
@@ -63,65 +66,74 @@ Users must also follow the steps in `AWS User Setup` before installing Fabulist.
 
 For more information about setting up AWS S3, go [here](https://aws.amazon.com/documentation/s3/).<br><br>
 
-### **Installing Fabulist**
+## **Installing Fabulist**
 
 1) From git bash, Terminal or Command Prompt, clone this repository to a directory on your computer.
 
-```
+
 git clone https://github.com/rami0141/Fabulist
 
-# change to the application direction
+## change to the application directory
+
+```
 cd Fabulist
+```
 
-# install the required packages
+## install the required packages
+```
 npm install
-
 ```
 
 Users will need to add a file named '.env' to the project folder.
 Add these lines to the file:
-
 ```
 MYSQL_PASSWORD=?????????
 MYSQL_USERNAME=?????????
-AWS_SECRET_ACCESS_KEY:??????????????????????????????????????????
-AWS_ACCESS_KEY_ID:?????????????????
-S3BUCKET:fabulist-images
-
+AWS_SECRET_ACCESS_KEY=??????????????????????????????????????????
+AWS_ACCESS_KEY_ID=?????????????????
+S3BUCKET=fabulist-images (or your bucket name if different)
 ```
 
 Replace the question marks with your MySQL password and username (without these variables, the app will still try to run with default user is root, and password as NULL)<br>
 Replace the question marks for the AWS fields with your secret access key and access key ID obtained above in `AWS User Setup Steps`.  If you named your S3 bucket something other than 'fabulist-images', replace that for the S3BUCKET field.
 
 
-### **Setting up the MySQL database**
+## **Setting up the MySQL database**
 
 1) Log in to MySQL Workbench.  From the home screen, create a new connection by clicking the + symbol beside 'MySQL Connections'.  Name the connection 'fabulist_db'.
 
 2) Click the new connection box to open it.  From the File menu, select 'Open SQL Script'.  Navigate to your project folder/db and select schema.sql.  Run the code to create the database.
 
-3) To seed database, 'npm run seed'.
+3) To seed database,
+ ```
+    npm run seed
+ ```
 
 
-### npm scripts
+## **npm scripts**
+
+## run server
 ```
-# run server
 npm start
-
-# run tests (see below)
+```
+## run tests (see below)
+```
 npm test
-
-# initialize database and seed with sample data
+```
+## initialize database and seed with sample data
+```
 npm run seed
-# or, from project root
+```
+## or, from project root
+```
 node db/seedWithSequelize
-
-# reinitialize databases with Sequelize Models (doesn't populate tables)
+```
+## reinitialize databases with Sequelize Models (doesn't populate tables)
+```
 npm run syncDBModels
 ```
 
-
-### Running Tests
+## Running Tests
 To run tests:
 ```
 npm test
@@ -129,8 +141,9 @@ npm test
 
 Note that right now the data that is inserted during tests is not removed. You can avoid messing up your main production and development database by switching to the test database (make sure to create 'database_test') before running tests.
 
+
+ load test environment variable, which forces tests to use 'development_test' database. Make sure you have created it first.
 ```
-# load test environment variable, which forces tests to use 'development_test' database. Make sure you have created it first.
 export NODE_ENV=test
 npm test
 ```
@@ -139,11 +152,12 @@ Setting the NODE_ENV variable like that is specific to each terminal, so you can
 
 ```
 export NODE_ENV=test
-# or just close terminal
 ```
+ or just close terminal
 
 
-Note that although karma is installed, we are having problems when trying to run tests with Karma that involve using the database connection, so the tests should be run manually (```npm test```).
+
+Note that although karma is installed, we are having problems when trying to run tests with Karma that involve using the database connection, so the tests should be run manually (`npm test).
 
 
 ## Copyright

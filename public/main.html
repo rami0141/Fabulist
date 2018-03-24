@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
   <!-- drawing board css -->
   <link rel="stylesheet" href="../test/drawing-app/bower_components/drawingboard.js/dist/drawingboard.min.css">
   <!-- Jquery and Bootstrap js styling -->
@@ -25,16 +28,13 @@
     <div id="menu">
       <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link active" href="#rule">Play Now!</a>
-  </li>
-  <li class="nav-item">
     <a class="nav-link" href="main.html">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#rule">About</a>
+    <a class="nav-link" href="https://github.com/rami0141/Fabulist">About</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#fstories">Finished Stories</a>
+    <a class="nav-link" href="#fstories">Explore More Stories</a>
   </li>
 </ul>
     </div>
@@ -51,25 +51,24 @@
       <div class="col-lg-6" id="rule-content">
         <h1>Fabulist</h1>
         <h6>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu sapien ipsum.
-          Praesent a faucibus lacus. Vivamus ut pellentesque orci. Suspendisse porta enim mattis commodo porttitor.
-          Morbi at volutpat dui. Aenean sollicitudin urna eu porta semper. Proin quis risus nec ipsum semper porta at auctor metus. Fusce tristique, massa vitae fermentum vestibulum, orci ex vestibulum nunc, id ultricies nisl nibh vitae ex. In hac habitasse platea dictumst.
-        </h6>
+          Fabulist is a collaborative story telling game in the style of Exquisite Corpse, the parlor game Consequences and Mad Libs. Any number of people can play. Fabulist is a game where participants take turns writing paragraphs of a story. If a player wants, they can draw an illustration in their turn instead of writing a paragraph. After each player has gone three times, Fabulist stitches the parts together into one story. Hilarity ensues.
+        </h6><br>
         <button type="button" name="button" class="btn btn-outline-danger btn-lg" id="playBtn">Play Now!</button>
       </div>
     </div>
   </div>
   </div>
   <br>
+
    <!-- Trigger/Open The Modal
    <button id="myBtn">New Game</button> -->
    <!-- The Modal -->
    <div id="myModal" class="modal">
        <!-- Modal content -->
-  
+
        <div class="modal-content modal-dialog modal-lg ">
            <div class="modal-header mb-3">
-               <h3 class="font-weight-bold">Story Outline</h3>
+               <h3 class="font-weight-bold">New Game</h3>
                <span class="close">&times;</span>
            </div>
            <div class="modal-body">
@@ -107,9 +106,10 @@
           </ol>
                <tr id="form-row">
                  <form id="player-form">
-                  <td colspan="4">
+                  <td colspan="4" class="row">
                     <label class="sr-only" for="inlineFormInputName">Player Name</label>
-                     <input placeholder="Enter a name" id="player-name" type="text" /> <br>
+                     <input id="player-name" type="text" placeholder="Enter a name">
+                     <br>
                   </td>
                   <br>
                    <td><button id="team" type="submit" class="btn btn-outline-danger btn-lg mb-3">Create Player</button>
@@ -123,29 +123,20 @@
        </div>
      </div>
     </div>
-    </div>
+  </div>
 
-
-
+  <!-- hidden until game starts -->
+  <div class="container">
+    <br>
     <!-- This will where the random theme will show -->
-    
-    <!-- hidden until game starts -->
-    <div class="container">
-        <h1>Create your story</h1>
-        <div id="random"></div>
-        <br>
-      <div class="row">
-      <!-- drawing app -->
-        <div class="col-lg-6">
-          <!-- canvas -->
-      <div class="example" data-example="3">
-        <div class="board" id="custom-board-2" style="width: 450px; height: 500px;">
-        </div>
-      </div>
+    <div id="random" class="text-center"></div>
+    <br>
+      <h1>Create your story</h1>
       <br>
-        </div>
-      <!-- text box -->
+    <div class="row">
+    <!-- drawing app -->
       <div class="col-lg-6">
+
         <form id="cms">
           <div class="form-group">
           <div id="current-player"></div>
@@ -162,22 +153,55 @@
             <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
           </div>
         </form>
+
       </div>
+    <!-- text box -->
+    <div class="col-lg-6">
+      <form id="cms">
+        <div class="form-group">
+          <label for="body">Write your paragraph:</label>
+          <textarea placeholder="250 characters max" class="form-control" rows="10" id="body" maxlength="250"></textarea>
+          <br />
+          <form>
+              <div class="form-group row">
+                <i class="fas fa-user-circle fa-2x col-sm-2"></i>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="author" placeholder="author" required>
+                  </div>
+                </div>
+            </form>
+            <br>
+            <!-- submit button -->
+          <button type="submit" class="btn btn-outline-danger btn-lg mb-3">Submit</button>
+        </div>
+      </form>
     </div>
+  </div>
+  </div>
+
+  <!-- This is where combining all paragraphs will happen -->
+  <!-- hidden until called upon -->
+<!-- stories -->
+<div class="container">
+    <div id="story">
+        <h1 id="">
+          <!-- Title  -->
+        </h1>
+  <br>
+  <br>
+  <div id="">
+      <!-- drawing will go here -->
     </div>
-    <!-- This is where combining all paragraphs will happen -->
-    <!-- hidden until called upon -->
-    <!-- stories -->
+  </div>
+
+<!--stories scroll-->
     <div class="container">
-      <div id="story">
-          <h1 id="">
-            <!-- Title  -->
-          </h1>
-    <br>
-    <br>
-    <div id="">
-        <!-- drawing will go here -->
-    <!-- 1st row -->
+      <br>
+      <br>
+      <h1 class="text-center">Explore Finished Stories</h1>
+      <br>
+      <br>
+      <!-- 1st row -->
     <div class="row" id="fstories">
       <div class="col-md-4">
         <div class="card">
@@ -236,6 +260,7 @@
   </div>
   <br>
   <br>
+
   <!-- footer -->
   <footer>
     <hr>
