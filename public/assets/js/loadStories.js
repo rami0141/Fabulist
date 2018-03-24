@@ -16,8 +16,9 @@ $(document).ready(function() {
     $.get("/api/stories", function(stories) {
       console.log(stories);
 
-      $("#story .col-md-4").empty();
-      var storiesContainerRow = $("#story .col-md-4").first().parent();
+      $("#fstories .col-md-4").empty();
+
+      var storiesContainerRow = $("#fstories .col-md-4").first().parent();
 
       storiesContainerRow.empty();
       // var cardDeck = $("<div>").addClass("card-deck")
@@ -31,7 +32,7 @@ $(document).ready(function() {
 
         // console.log(i);
         // var story = stories[i];
-        // var newStoryDiv = $("<div>").addClass("col-md-4")
+        var newStoryDiv = $("<div>").addClass("col-md-4")
         var newStoryCard = $("<div>").addClass("card").attr("id", "story_card" + story.id)
           .append($("<img>").addClass("card-img-top")
             .attr("src", "http://via.placeholder.com/350x150")
@@ -75,10 +76,11 @@ $(document).ready(function() {
           .append($("<ul>").addClass("list-style").append(story.Players.map(player=> $("<li>").addClass("text-muted").text(player.name))))
         // newStoryDiv.find(".card-body").append(storyTurnsContainer);
         // newStoryDiv.find(".card").append(storyFooter)
+        newStoryDiv.append(newStoryCard);
         newStoryCard.find(".card-body").append(storyTurnsContainer);
         newStoryCard.append(storyFooter);
         // cardDeck.append(newStoryCard);
-        storiesContainerRow.append(newStoryCard);
+        storiesContainerRow.append(newStoryDiv);
 
         // storiesContainerRow.find(".card-deck").append(newStoryDiv.append(newStoryCard));
 
