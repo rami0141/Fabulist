@@ -97,6 +97,7 @@ $(document).ready(function() {
       $("#player-name").val("");
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
+
     }else if (numberOfTurns = totalPlayers -1) {
       var name = $("#player-name").val().trim();
       console.log(name);
@@ -116,7 +117,7 @@ $(document).ready(function() {
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
        // reset input box to nothing
-      $("#rules").hide();
+      $("#team").hide();
       $("#player-name").hide();
       $("#startNow").fadeIn();
     }
@@ -131,17 +132,61 @@ $(document).ready(function() {
   function randomThemes() {
     var themes = ["Coco the Dog", "Nala the Cat", "Peperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise"];
     var randomThemes = themes[Math.floor(Math.random() * themes.length)];
-    $("#random").append("<h5> Story Theme: " + randomThemes + "</h5>");
+    $("#random").append("<h4> Story Theme: " + randomThemes + "</h4>");
     console.log(randomThemes);
+    playerTurn();
   }
+
 
 // ------------------ GAME ---------------------------------
 //current player and playerID
+//playerArr
+var sequence;
 
-// function playStory() {
+function playerTurn() {
 
-// }
+  // this will loop through all players in the array
+  for (i = 0; i < playerArr.length; i++) {
+      console.log(playerArr[i].name);
+      var currentPlayer = playerArr[i].name;
+      $("#current-player").append("<h5>" + currentPlayer + ", please write your paragraph!</h6>");
+      sequence ++
 
+  }
+
+}
+    
+    // //postStory function runs when button is clicked
+    // $(document).on("click", postStory);
+    // //This function handles what happens when a paragraph is submitted
+    // function postStory(){
+    //   event.preventDefault(event);
+    //   // This will grab what is in the input box
+    //   if(!bodyInput.val().trim()) {
+    //     return;
+    // }
+
+    //   var newStoryPost = {
+    //     body: bodyInput.val().trim()
+    //     //name, player_ID, StoryID? 
+    //   }
+    // };
+
+    // //Submits a new post - adds player name, player_ID and StoryID
+    // function submitPost(post) {
+    //   $.post("/api/turns", post)
+    //     .done(function(playerData) {
+    //     console.log('data is:');
+    //     console.log(playerData);
+    //     playerArr.push(
+    //     {
+    //       name: name,
+    //       player_ID: playerData.id
+    //     })
+    //   })
+    // };
+
+    //------------------ DISPLAY ALL PARAGRAPHS --------
 
 
 
