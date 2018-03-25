@@ -3,8 +3,6 @@
 $(document).ready(function() {
   $("#hideThis").hide();
   $(".player-container").hide();
- 
-
   // created a variable to store the number of players
   var totalPlayers = 0;
   var Story_ID = "";
@@ -32,20 +30,17 @@ $(document).ready(function() {
         // console.log("Story_ID is: "+Story_ID);
     });
     $("#game-name").val("");
-
   });
 
   console.log(totalPlayers);
   var numberOfTurns = 0;
   var nameInput = $("#player-name");
-
   var playerContainer = $(".player-container");
-      
+    
   $("#startNow").hide();
  
+  //when you click button player-form, the handlePlayerFormSubmit will run
   $(document).on("submit", "#player-form", handlePlayerFormSubmit);
-
-
 
   // A function to handle what happens when the form is submitted to create a new Author
   function handlePlayerFormSubmit(event) {
@@ -73,13 +68,10 @@ $(document).ready(function() {
     // console.log('playerData is:')
     // console.log(playerData);
 
-
-    if( numberOfTurns < totalPlayers-1){
-
+    if ( numberOfTurns < totalPlayers-1){
       var name = $("#player-name").val().trim();
       console.log(name);
 
-      //Should update database??
       $.post("/api/players", playerData)
       .done(function(playerData) {
         console.log('data is:');
@@ -91,8 +83,7 @@ $(document).ready(function() {
           }
         );
       });
-
-      
+  
       // Add to number of turns
       numberOfTurns++
       // reset input box to nothing
@@ -100,21 +91,21 @@ $(document).ready(function() {
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
 
-    }else if (numberOfTurns = totalPlayers -1) {
+    } else if (numberOfTurns = totalPlayers -1) {
       var name = $("#player-name").val().trim();
       console.log(name);
 
       //Database - should update last players name?
       $.post("/api/players", playerData)
-      .done(function(playerData) {
-        console.log('data is:');
-        console.log(playerData);
-        playerArr.push(
-          {
-            name: name,
-            player_ID: playerData.id
-          });
-      });
+        .done(function(playerData) {
+          console.log('data is:');
+          console.log(playerData);
+          playerArr.push(
+            {
+              name: name,
+              player_ID: playerData.id
+            });
+        });
 
       // This will create an item in the list
       $("ol").append("<li>" + name + "</li>");
@@ -150,20 +141,28 @@ $(document).ready(function() {
 
     
   $(document).on("click", "#post", playerTurn);
-  var bodyInput = $("#bodyInput");
-  var sequence=0;
-  var pturns = 0;
-  var i = 0;
-  var pj = 0;
-  //for database update use pname and pid
-  var pname;
-  var pid;
-  var playerNextName
+    var bodyInput = $("#bodyInput");
+    var sequence=0;
+    var pturns = 0;
+    var i = 0;
+    var pj = 0;
+    //for database update use pname and pid
+    var pname;
+    var pid;
+    var playerNextName
 
-function playerTurn() {
-
-  // each player is given 3 turns
-  if (pturns < 3 && i < playerArr.length - 1) {
+  function playerTurn() {
+    // each player is given 3 turns
+    if (pturns == 2 && i == playerArr.length-1) {
+      pname = playerArr[i].name;
+      pid = playerArr[i].player_ID;
+      console.log(pname);
+      console.log(pid);
+      postStory();
+      $("#hideAfterLastTurn").hide();
+      $("#rule").fadeIn();
+    }
+    else if (pturns < 3 && i < playerArr.length - 1) {
       //stored players in array in a variable
       playerNextName = playerArr[i+1].name;
       pname = playerArr[i].name;
@@ -183,7 +182,7 @@ function playerTurn() {
     }
     // moves the turns
     // if all players all looped through, pturns increases
-  else if (pturns < 3) {
+    else if (pturns < 3) {
     sequence++
     $(".current-player").html("<h4>" + playerArr[0].name + "</h4>");
     pname = playerArr[i].name;
@@ -196,59 +195,39 @@ function playerTurn() {
     //adds a turn
     pturns++;
   }
-  else {
-    //will invoke the function that combines all paragraphs
-    $(".last").hide();
-    console.log("Done")
-  }
 }
     
 
 // -------------- posting stories -------
-    //This function handles what happens when a paragraph is submitted
-    function postStory() {
-      event.preventDefault();
 
-      // This will grab what is in the input box
-      if(!bodyInput.val().trim()) {
-        return;
+  function postStory() {
+    event.preventDefault();
+
+    // This will grab what is in the input box
+    if(!bodyInput.val().trim()) {
+      return;
     }
-      console.log(bodyInput);
+    // console.log(bodyInput);
+    var player = playerArr[(i-1) % totalPlayers];
+    var newStoryPost = {
+      body: bodyInput.val().trim(),
+      PlayerId: pid,
+      StoryId: Story_ID,
+      sequence: sequence
+    }
+    console.log(newStoryPost);
+    // $("#bodyInput").val("");
+    // $(".showParagraphHere").append("<p>" + newStoryPost.body + "</p>");
 
 
-      var newStoryPost = {
-       sequence: sequence,
-       body: bodyInput.val().trim(),
-       illustration: null,
-       StoryId: Story_ID,
-       PlayerId: pid
-     };
-
-      console.log(newStoryPost);
-      $("#bodyInput").val("");
-      $(".showParagraphHere").append("<p>" + newStoryPost.body + "</p>");
-    };
-
-    //Submits a new post - adds player name, player_ID and StoryID
-    // function submitPost(post) {
-    //   $.post("/api/turns", post)
-    //     .done(function(playerData) {
-    //     console.log('data is:');
-    //     console.log(playerData);
-    //     playerArr.push(
-    //     {
-    //       name: name,
-    //       player_ID: playerData.id
-    //     })
-    //   })
-    // };
-
-    //------------------ DISPLAY ALL PARAGRAPHS ------------
-
-
-
-
-
+    console.log("post data being submitted",newStoryPost);
+    $("#bodyInput").val("");
+    $(".showParagraphHere").append("<p>" + newStoryPost.body + "</p>");
+    // will post data to the turns table
+    $.post("/api/turns", newStoryPost).done(function(data) {
+      console.log("received response from turn post:", data)
+    })
+  };
 });  // End of document.ready function
   
 
