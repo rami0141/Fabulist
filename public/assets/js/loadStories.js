@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  console.log("hey")
+
   var imageOfXena = "https://scontent.ffcm1-2.fna.fbcdn.net/v/t1.0-9/68163_10152518951143602_406979144894524496_n.jpg?oh=61dafd800d5640cf47669f95593afdec&oe=5B3BE451"
   // function loadStories(storyID) {
 
@@ -33,11 +33,13 @@ $(document).ready(function() {
         // console.log(i);
         // var story = stories[i];
         var newStoryDiv = $("<div>").addClass("col-md-4")
-        var newStoryCard = $("<div>").addClass("card").attr("id", "story_card" + story.id)
-          .append($("<img>").addClass("card-img-top")
-            .attr("src", "http://via.placeholder.com/350x150")
-          )
+        var newStoryCard = $("<div>").addClass("card showStory").attr("id", "story_card" + story.id)
+          // .append($("<img>").addClass("card-img-top")
+          //   .attr("src", "http://via.placeholder.com/350x150")
+          // )
           .append($("<div>").addClass("card-body")
+
+
             .append($("<h4>").addClass("card-text").text(story.name)
           )
           // .append($("<h5>").text("Authors/Players:"))
@@ -78,7 +80,7 @@ $(document).ready(function() {
         // newStoryDiv.find(".card").append(storyFooter)
         newStoryDiv.append(newStoryCard);
         newStoryCard.find(".card-body").append(storyTurnsContainer);
-        newStoryCard.append(storyFooter);
+        newStoryCard.append(storyFooter  .hide());
         // cardDeck.append(newStoryCard);
         storiesContainerRow.append(newStoryDiv);
 
@@ -90,3 +92,8 @@ $(document).ready(function() {
   }
   getStories();
 })
+$(document).on("click", ".showStory", function(event){
+  var x = $(this).find(".story-body, .card-footer");
+  x.toggle();
+console.log("hey", x);
+});
