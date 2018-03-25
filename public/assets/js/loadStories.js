@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 
   function createStoryBodyDiv(turns) {
-    var storyTurnsContainer = $("<div>").addClass("story-body").attr("id", "story-body-" + turns[0].StoryId);
+    var storyTurnsContainer = $("<div>").addClass("story-body");
     turns.forEach(function(turn) {
       var turnElement = createStoryTurnElement(turn);
       storyTurnsContainer.append(turnElement);
@@ -54,10 +54,9 @@ $(document).ready(function() {
     var categoriyString = category || "";
     $.get("/api/stories", function(stories) {
       stories.sort(function(storyA, storyB) {
-        // really dumb sort, sort by latest UPDATED_AT for each story's turns
-        var storyALatest = storyA.Turns.reduce((a,b) => a.updatedAt > b.updatedAt ? a.updatedAt : b.updatedAt)
-        var storyBLatest = storyB.Turns.reduce((a,b) => a.updatedAt > b.updatedAt ? a.updatedAt : b.updatedAt)
-        console.log("storyALatest", storyALatest, "storyBLatest", storyBLatest);
+        // really dumb sort, sort by latest UPDATED_AT for each story's turns. Get last element of Turns array for each story, and get its updatedAT
+        var storyALatest = storyA.Turns && storyA.Turns.length > 0 ? storyA.Turns.slice(-1)[0].updatedAt : 0;
+        var storyBLatest = storyB.Turns && storyB.Turns.length > 0 ? storyB.Turns.slice(-1)[0].updatedAt : 0;
         return storyALatest > storyBLatest ? -1: 1;
       })
 
