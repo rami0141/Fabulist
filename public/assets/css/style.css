@@ -19,6 +19,10 @@ nav {
   padding-top: 1em;
 }
 
+#menu ul li a:hover {
+  color: #4a4e69;
+}
+
 #rule {
   background-color: #4a4e69;
   padding-top: 5em;
