@@ -14,7 +14,7 @@ $(document).ready(function() {
     console.log("running getStories");
     var categoriyString = category || "";
     $.get("/api/stories", function(stories) {
-      console.log(stories);
+      // console.log(stories);
 
       $("#fstories .col-md-4").empty();
 
@@ -45,7 +45,7 @@ $(document).ready(function() {
 
         )
 
-        console.log("turns: ", story.Turns)
+        // console.log("turns: ", story.Turns)
         // for (var j = 0; j < story.Turns; j++) {
         //   var turn = story.Turns[j];
         //   console.log("turn", turn)
@@ -55,7 +55,7 @@ $(document).ready(function() {
         var storyTurnsContainer = $("<div>").addClass("story-body").attr("id", "story-body-" + story.id).hide();
         story.Turns.forEach(function(turn) {
           var turnElement = $("<div>").addClass("story-turn card");
-          console.log(turn.body)
+          // console.log(turn.body)
 
           if (turn.illustration) {
             turnElement

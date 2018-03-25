@@ -154,22 +154,29 @@ $(document).ready(function() {
   var sequence=0;
   var pturns = 0;
   var i = 0;
-  
+  var pj = 0;
+  //for database update use pname and pid
+  var pname;
+  var pid;
+  var playerNextName
 
 function playerTurn() {
 
   // each player is given 3 turns
   if (pturns < 3 && i < playerArr.length - 1) {
       //stored players in array in a variable
-      var playerNextName = playerArr[i+1].name;
+      playerNextName = playerArr[i+1].name;
+      pname = playerArr[i].name;
+      pid = playerArr[i].player_ID;
+      console.log(pname);
+      console.log(pid);
       // order
       sequence++
       //This will display the players in the array in html
       $(".current-player").html("<h4>" + playerNextName + "</h4>");
 
       //console.log(playerNextName);
-      i++
-
+      i++;
       //Need to post 
       postStory();
 
@@ -179,13 +186,15 @@ function playerTurn() {
   else if (pturns < 3) {
     sequence++
     $(".current-player").html("<h4>" + playerArr[0].name + "</h4>");
+    pname = playerArr[i].name;
+    pid = playerArr[i].player_ID;
     postStory();
-    console.log(sequence);
+    console.log(pname);
+    console.log(pid);
+    //console.log(sequence);
     i = 0;
     //adds a turn
     pturns++;
-
-
   }
   else {
     //will invoke the function that combines all paragraphs
@@ -208,9 +217,13 @@ function playerTurn() {
 
 
       var newStoryPost = {
-        body: bodyInput.val().trim()
-        //name, player_ID, StoryID? 
-      }
+       sequence: sequence,
+       body: bodyInput.val().trim(),
+       illustration: null,
+       StoryId: Story_ID,
+       PlayerId: pid
+     };
+
       console.log(newStoryPost);
       $("#bodyInput").val("");
       $(".showParagraphHere").append("<p>" + newStoryPost.body + "</p>");
