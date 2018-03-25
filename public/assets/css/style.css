@@ -147,3 +147,13 @@ input::-webkit-input-placeholder {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+.card.story-turn {
+  padding: 1em 1em .1em 1em;
+  margin-bottom: .3em;
+}
+
+#fstories>div {
+  margin-bottom: 1em;
+}

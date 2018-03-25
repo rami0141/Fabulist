@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 
   function createStoryBodyDiv(turns) {
-    var storyTurnsContainer = $("<div>").addClass("story-body").attr("id", "story-body-" + story.id);
+    var storyTurnsContainer = $("<div>").addClass("story-body").attr("id", "story-body-" + turns[0].StoryId);
     turns.forEach(function(turn) {
       var turnElement = createStoryTurnElement(turn);
       storyTurnsContainer.append(turnElement);
