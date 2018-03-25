@@ -1,5 +1,6 @@
 $(document).ready(function() {
   const allowImages = false;
+  $("#fstories .col-md-4").empty();
 
   function createStoryTurnElement(turn) {
     var turnElement = $("<div>").addClass("story-turn card");
@@ -77,6 +78,8 @@ $(document).ready(function() {
 
 $(document).on("click", ".story-card", function(event){
   var x = $(this).find(".story-body, .card-footer");
-  x.toggle();
-  console.log("hey", x);
+  var isHidden = x.css("display") === "none"
+  // console.log(x.css("display"));
+  console.log(isHidden)
+  x.slideToggle();
 });
