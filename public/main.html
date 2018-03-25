@@ -14,7 +14,7 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
   <!-- drawing board css -->
-  <link rel="stylesheet" href="../test/drawing-app/bower_components/drawingboard.js/dist/drawingboard.min.css">
+  <link rel="stylesheet" type="text/html" href="assets/js/bower_components/drawingboard.js/dist/drawingboard.min.css">
   <!-- Jquery and Bootstrap js styling -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
@@ -23,7 +23,7 @@
   <!-- nav bar -->
   <nav>
     <div id="logo" class="text-center">
-      <img class="img-fluid" src="assets/images/fabulist-logo.png" width="300px">
+      <img class="img-fluid" src="assets/images/fabulist-logo.png" width="200px">
     </div>
     <div id="menu">
       <ul class="nav justify-content-center">
@@ -66,7 +66,7 @@
    <div id="myModal" class="modal">
        <!-- Modal content -->
 
-       <div class="modal-content modal-dialog modal-lg ">
+       <div class="modal-content modal-dialog modal-sm ">
            <div class="modal-header mb-3">
                <h3 class="font-weight-bold">New Game</h3>
                <span class="close">&times;</span>
@@ -100,22 +100,25 @@
           <!-- PLAYERS NAME  -->
     <div class="container">
        <div class="player-container" style="display: block;">
-        <h1>Players</h1>
+        <h3>Players</h3>
           <ol>
-            <h6>Player Name:</h6>
+            <!-- Player's name will show up -->
           </ol>
-               <tr id="form-row">
+               <div id="form-row">
                  <form id="player-form">
-                  <td colspan="4" class="row">
-                    <label class="sr-only" for="inlineFormInputName">Player Name</label>
-                     <input id="player-name" type="text" placeholder="Enter a name">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <label class="sr-only" for="player-name">Player Name</label>
+                    </div>
+                    <div class="col-sm-12">
+                      <input id="player-name" class="form-control transparent-input border border-white" type="text" placeholder="Enter a name">
+                    </div>
                      <br>
-                  </td>
+                  </div>
                   <br>
-                   <td><button id="team" type="submit" class="btn btn-outline-danger btn-lg mb-3">Create Player</button>
-                   </td>
+                   <button id="team" type="submit" class="btn btn-outline-danger btn-lg mb-3">Create Player</button>
                  </form>
-               </tr>
+               </div>
              </tbody>
             </table>
             <button id="startNow" type="submit" class="btn btn-outline-danger btn-lg mb-3">Start Game</button>
@@ -139,40 +142,17 @@
       <h1>Create your story</h1>
       <br>
     <div class="row">
-    <!-- drawing app -->
-      <div class="col-lg-6">
-
-        <form id="cms">
-          <div class="form-group">
-            <label for="body">Write your paragraph:</label>
-            <textarea placeholder="250 characters max" class="form-control" rows="10" maxlength="250"></textarea>
-            <br />
-            <form>
-              </form>
-              <br>
-            <button type="submit" class="btn btn-outline-danger btn-lg mb-3" >Submit</button>
-          </div>
-        </form>
-
-      </div>
     <!-- text box -->
-    <div class="col-lg-6">
+    <div class="col-lg-12">
       <form id="cms">
         <div class="form-group">
 
           <label for="body">Write your paragraph:</label>
-          <textarea placeholder="250 characters max" class="form-control" rows="10" id="bodyInput" maxlength="250"></textarea>
-          <br />
-          <form>
-              <div class="form-group row">
-                <i class="fas fa-user-circle fa-2x col-sm-2"></i>
-                  <div class="col-sm-10">
-                   <!-- Div that displays current player name -->
-                    <div class="current-player"></div>
-                    <!-- <input type="text" class="form-control" id="author" placeholder="author"> -->
-                  </div>
-                </div>
-            </form>
+          <textarea placeholder="500 characters max" class="form-control" rows="10" id="bodyInput" maxlength="500"></textarea>
+          <br>
+              <i class="fas fa-user-circle fa-2x"></i>
+        <!-- Div that displays current player name -->
+              <div class="current-player"></div>
             <br>
             <!-- submit button -->
           <button type="submit" id="post" class="btn btn-outline-danger btn-lg mb-3 last">Submit</button>
@@ -208,7 +188,6 @@
     <div class="row" id="fstories">
       <div class="col-md-4">
         <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
           <div class="card-body">
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
@@ -216,7 +195,6 @@
       </div>
       <div class="col-md-4">
         <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
           <div class="card-body">
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
@@ -224,7 +202,6 @@
       </div>
       <div class="col-md-4">
         <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
           <div class="card-body">
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
@@ -232,33 +209,6 @@
       </div>
     </div>
     <br>
-<!-- 2nd row -->
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
-          <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-      </div>
-      </div>
-    </div>
   </div>
   </div>
   <br>
@@ -271,61 +221,9 @@
       Exhausted_Bootcampers; &copy; 2018
     </p>
   </footer>
+
   <!-- game logic -->
   <script src='assets/js/game.js'></script>
   <script src='assets/js/loadStories.js'></script>
-  <!-- js for drawing app -->
-  <script src="../test/drawing-app/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../test/drawing-app/bower_components/simple-undo/lib/simple-undo.js"></script>
-  <script src="../test/drawing-app/bower_components/drawingboard.js/dist/drawingboard.min.js"></script>
-  <!-- logic -->
-  <script data-example="3">
-    var customBoard2 = new DrawingBoard.Board('custom-board-2', {
-      controls: [
-        'Color',
-        { Size: { type: 'dropdown' } },
-        { DrawingMode: { filler: false } },
-        'Navigation',
-        'Download'
-      ],
-      size: 1,
-      webStorage: 'session',
-      enlargeYourContainer: true,
-      droppable: true, //try dropping an image on the canvas!
-      stretchImg: true //the dropped image can be automatically ugly resized to to take the canvas size
-    });
-  </script>
-    <script src="../test/drawing-app/bower_components/drawingboard.js/example/yepnope.js"></script>
-    <script>
-    var iHasRangeInput = function() {
-      var inputElem  = document.createElement('input'),
-        smile = ':)',
-        docElement = document.documentElement,
-        inputElemType = 'range',
-        available;
-      inputElem.setAttribute('type', inputElemType);
-      available = inputElem.type !== 'text';
-      inputElem.value         = smile;
-      inputElem.style.cssText = 'position:absolute;visibility:hidden;';
-      if ( /^range$/.test(inputElemType) && inputElem.style.WebkitAppearance !== undefined ) {
-        docElement.appendChild(inputElem);
-        defaultView = document.defaultView;
-        available = defaultView.getComputedStyle &&
-          defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' &&
-          (inputElem.offsetHeight !== 0);
-        docElement.removeChild(inputElem);
-      }
-      return !!available;
-    };
-    yepnope({
-      test : iHasRangeInput(),
-      nope : ['../test/drawing-app/bower_components/drawingboard.js/example/fd-slider.min.css', '../test/drawing-app/bower_components/drawingboard.js/example/fd-slider.min.js'],
-      callback: function(id, testResult) {
-        if("fdSlider" in window && typeof (fdSlider.onDomReady) != "undefined") {
-          try { fdSlider.onDomReady(); } catch(err) {}
-        }
-      }
-    });
-  </script>
 </body>
 </html>
