@@ -52,13 +52,7 @@ $(document).ready(function() {
   function getStories(category) {
     console.log("running getStories");
     var categoriyString = category || "";
-    $.get("/api/stories", function(stories) {
-      stories.sort(function(storyA, storyB) {
-        // really dumb sort, sort by latest UPDATED_AT for each story's turns. Get last element of Turns array for each story, and get its updatedAT
-        var storyALatest = storyA.Turns && storyA.Turns.length > 0 ? storyA.Turns.slice(-1)[0].updatedAt : 0;
-        var storyBLatest = storyB.Turns && storyB.Turns.length > 0 ? storyB.Turns.slice(-1)[0].updatedAt : 0;
-        return storyALatest > storyBLatest ? -1: 1;
-      })
+    $.get("/api/stories?ordering=DESC", function(stories) {
 
       $("#fstories .col-md-4").empty();
 
