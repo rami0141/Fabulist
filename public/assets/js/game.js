@@ -126,6 +126,7 @@ $(document).ready(function() {
   function randomThemes() {
     $("#hideThis").fadeIn();
     $("#rule").hide();
+    $(".finished").hide();
     var themes = ["Coco the Dog", "Nala the Cat", "Pepperoni Pizza", "Sunny Day", "Back To School", "Jumanji", "Red Lamborghini", "Barcelona", "Coffee Date", "Redwood Forest", "On A Cruise", "Coding Bootcamp", "Dwayne Johnson", "Korean Bbq"];
     var randomThemes = themes[Math.floor(Math.random() * themes.length)];
     $("#random").append("<h2> Story Theme: " + randomThemes + "</h2>");
@@ -161,6 +162,7 @@ $(document).ready(function() {
       postStory();
       $("#hideAfterLastTurn").hide();
       $("#rule").fadeIn();
+      $(".finished").fadeIn();
     }
     else if (pturns < 3 && i < playerArr.length - 1) {
       //stored players in array in a variable
