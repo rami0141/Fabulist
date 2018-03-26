@@ -51,7 +51,7 @@
       <div class="col-lg-6" id="rule-content">
         <h1>Fabulist</h1>
         <h6>
-          Fabulist is a collaborative story telling game in the style of Exquisite Corpse, the parlor game Consequences and Mad Libs. Any number of people can play. Fabulist is a game where participants take turns writing paragraphs of a story. If a player wants, they can draw an illustration in their turn instead of writing a paragraph. After each player has gone three times, Fabulist stitches the parts together into one story. Hilarity ensues.
+          Fabulist is a collaborative story telling game in the style of Exquisite Corpse, the parlor game Consequences and Mad Libs. Any number of people can play. Fabulist is a game where participants take turns writing paragraphs of a story. After each player has gone three times, Fabulist stitches the parts together into one story. Hilarity ensues.
         </h6><br>
         <button type="button" name="button" class="btn btn-outline-danger btn-lg" id="playBtn">Play Now!</button>
       </div>
@@ -83,7 +83,7 @@
             <div id="player-form">
               <select class="custom-select mb-3 transparent-input border border-white" id="numberOfPlayers">
                    <option selected>Number of Players</option>
-                   
+
                    <option value="2">Two</option>
                    <option value="3">Three</option>
                    <option value="4">four</option>
@@ -131,6 +131,7 @@
 
   <!-- hidden until game starts -->
   <div class="container" id="hideThis">
+  <!-- <div class="container"> -->
     <br>
     <!-- This will where the random theme will show -->
     <div id="random" class="text-center"></div>
@@ -143,8 +144,11 @@
       <h1>Create your story</h1>
       <br>
     <div class="row">
+      <div class="col-lg-6">
+        <img src="assets/images/create.png" class="img-fluid" width="500px">
+      </div>
     <!-- text box -->
-    <div class="col-lg-12">
+    <div class="col-lg-6">
       <form id="cms">
         <div class="form-group">
 
@@ -155,14 +159,23 @@
         <!-- Div that displays current player name -->
               <div class="current-player"></div>
             <br>
+            <div class="row">
+              <div class="col-lg-4">
             <!-- submit button -->
           <button type="submit" id="post" class="btn btn-outline-danger btn-lg mb-3 last">Submit</button>
+            </div>
+            <div class="col-lg-4">
+          <button type="button" id="finished" class="btn btn-outline-danger btn-lg mb-3 last">Finished</button>
+            </div>
+          </div>
         </div>
       </form>
     </div>
   </div>
   </div>
+  <hr>
   </div>
+
 
   <!-- This is where combining all paragraphs will happen -->
   <!-- hidden until called upon -->

@@ -36,9 +36,9 @@ $(document).ready(function() {
   var numberOfTurns = 0;
   var nameInput = $("#player-name");
   var playerContainer = $(".player-container");
-    
+
   $("#startNow").hide();
- 
+
   //when you click button player-form, the handlePlayerFormSubmit will run
   $(document).on("submit", "#player-form", handlePlayerFormSubmit);
 
@@ -62,7 +62,7 @@ $(document).ready(function() {
     console.log(playerArr);
   }
 
-  // A function for creating a player. 
+  // A function for creating a player.
   // Only allowed to create number of players selected
   function upsertPlayer(playerData) {
     // console.log('playerData is:')
@@ -83,7 +83,7 @@ $(document).ready(function() {
           }
         );
       });
-  
+
       // Add to number of turns
       numberOfTurns++
       // reset input box to nothing
@@ -115,11 +115,11 @@ $(document).ready(function() {
       $("#startNow").fadeIn();
     }
 
-  };  
+  };
 
   // --------------RANDOM THEME -------------------------------
     $(document).on("click", "#startNow", randomThemes);
-    
+
 
   //random word function
   // Random Themes
@@ -139,7 +139,7 @@ $(document).ready(function() {
 //current player and playerID
 //playerArr
 
-    
+
   $(document).on("click", "#post", playerTurn);
     var bodyInput = $("#bodyInput");
     var sequence=0;
@@ -176,7 +176,7 @@ $(document).ready(function() {
 
       //console.log(playerNextName);
       i++;
-      //Need to post 
+      //Need to post
       postStory();
 
     }
@@ -196,7 +196,7 @@ $(document).ready(function() {
     pturns++;
   }
 }
-    
+
 
 // -------------- posting stories -------
 
@@ -229,7 +229,7 @@ $(document).ready(function() {
     })
   };
 });  // End of document.ready function
-  
+
 
 
 
@@ -245,7 +245,7 @@ $(document).ready(function() {
  // Get the <span> element that closes the modal
  var span = document.getElementsByClassName("close")[0];
 
- // When the user clicks the button, open the modal 
+ // When the user clicks the button, open the modal
  btn.onclick = function () {
      modal.style.display = "block";
  }
@@ -266,4 +266,7 @@ $(document).ready(function() {
 
 })
 
-  
+//_________Finished button when game is finished to refresh page______________
+$( "#finished" ).click(function() {
+    location.reload();
+});

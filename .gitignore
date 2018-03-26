@@ -1,3 +1,4 @@
 node_modules
 .env
 aws_s3_keys.txt
+test/testOutputImages
