@@ -157,3 +157,13 @@ input::-webkit-input-placeholder {
 #fstories>div {
   margin-bottom: 1em;
 }
+
+footer {
+background-color: #9a8c98;
+padding-bottom: 1em;
+}
+
+footer p {
+  color: white;
+  padding-top: 1em;
+}

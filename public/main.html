@@ -13,8 +13,6 @@
   <!-- Font Awesome -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
-  <!-- drawing board css -->
-  <link rel="stylesheet" type="text/html" href="assets/js/bower_components/drawingboard.js/dist/drawingboard.min.css">
   <!-- Jquery and Bootstrap js styling -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
@@ -132,14 +130,13 @@
   <!-- hidden until game starts -->
   <div class="container">
     <div id="hideThis">
-  <!-- <div class="container"> -->
     <br>
     <!-- This will where the random theme will show -->
     <div id="random" class="text-center"></div>
     <br>
     <h5>See What Has Been Written So Far:</h5>
     <br>
-    <div class="showParagraphHere"></div>
+    <div class="showParagraphHere text-center"></div>
     <button type="button" id="finished" class="btn btn-outline-danger btn-lg mb-3 finished">Finished</button>
     <br>
     <div id="hideAfterLastTurn">
@@ -166,9 +163,8 @@
             <!-- submit button -->
           <button type="submit" id="post" class="btn btn-outline-danger btn-lg mb-3 last">Submit</button>
             </div>
-            <div class="col-lg-4">
-            <button type="button" id="finished" class="btn btn-outline-danger btn-lg mb-3">Finished</button>
-            </div>
+            <br>
+            <br>
           </div>
         </div>
       </form>
@@ -177,6 +173,7 @@
   </div>
   <hr>
   </div>
+</div>
 
 
   <!-- This is where combining all paragraphs will happen -->
@@ -233,7 +230,6 @@
 
   <!-- footer -->
   <footer>
-    <hr>
     <p class="text-center">
       Exhausted_Bootcampers; &copy; 2018
     </p>
