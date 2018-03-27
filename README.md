@@ -22,7 +22,7 @@
 
 * [Jerridd Speidel](https://github.com/TowerGuy2909) UI and modals
 * [Maiyer Thao](https://github.com/jaethao) Graphic design and drawing component
-* [Craig Christensen](https://github.com/ruffcorn33) Database - MySQL and AWS S3
+* [Craig Christensen](https://github.com/ruffcorn33) Database - Framework, MySQL, AWS S3 and AWS Polly
 * [Joe Semlak](https://github.com/semlak) Testing
 * [Cristina Zhang](https://github.com/rami0141) Gameplay
 
@@ -30,41 +30,8 @@
 
 ### **Requirements**
 Users must have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [MySQL](https://www.mysql.com/downloads/) and [Node.js](https://nodejs.org/en/download/) installed before completing these instructions.
-Users must also follow the steps in `AWS User Setup` before installing Fabulist.<br>
+~~Users must also follow the steps in `AWS User Setup` before installing Fabulist.~~<br>
 
-### **AWS User Setup Steps:**
-
-(These instructions are modified from fishcharlie's instructions here: [ExpressFileUploadS3Example](https://github.com/fishcharlie/ExpressFileUploadS3Example)) 
-1.  Create an [Amazon Web Services (AWS)](https://aws.amazon.com) account.
-2.  Once at the main AWS dashboard search for the `IAM` service or scroll down to find the `IAM` service and select that.
-3.  On the left panel of the `IAM` service select `Users`.
-4.  Click `Add user` at the top of the screen.
-5.  Enter a `User name` in the text field. This can be anything (ex. `webuser`, `s3user`, `appkey`, etc.)
-6.  Click the check box next to `Programmatic access`.
-7.  Click `Next: Permissions`.
-8.  Select `Attach existing policies directly`.
-9.  In the search field right below that type in `S3`.
-10. Click on the check box next to `AmazonS3FullAccess`.
-11. Scroll down and click on the `Next: Review` button.
-12. Click `Create user`.
-13. This will display a table with your `Access key ID` and `Secret access key`. You will need to click the `Show` button to view your `Secret access key`. **!!! Important: this is the *only* time you will be able to see your secret access key without regenerating it, so please be sure to save it somewhere secure. !!!**
-
-
-
-**AWS S3 Bucket Creation:**
-
-1.  Go to the main AWS dashboard.
-2.  Search for or scroll down to select `S3`.
-3.  Click `Create bucket`.
-4.  Give your bucket a unique name. The default is 'fabulist-images'.
-5.  Select the region you wish to store your bucket data in.
-6.  Click `Next`.
-7.  The next panel allows you to set custom properties for your bucket. For now we will use the default settings so click `Next`.
-8.  Under the drop down for `Manage public permissions` select `Not Public`.
-9.  Click `Next`.
-10. Click `Create bucket`.
-
-For more information about setting up AWS S3, go [here](https://aws.amazon.com/documentation/s3/).<br><br>
 
 ## **Installing Fabulist**
 
@@ -89,9 +56,6 @@ Add these lines to the file:
 ```
 MYSQL_PASSWORD=?????????
 MYSQL_USERNAME=?????????
-AWS_SECRET_ACCESS_KEY=??????????????????????????????????????????
-AWS_ACCESS_KEY_ID=?????????????????
-S3BUCKET=fabulist-images (or your bucket name if different)
 ```
 
 Replace the question marks with your MySQL password and username (without these variables, the app will still try to run with default user is root, and password as NULL)<br>
@@ -158,6 +122,49 @@ export NODE_ENV=test
 
 
 Note that although karma is installed, we are having problems when trying to run tests with Karma that involve using the database connection, so the tests should be run manually (`npm test).
+
+### **AWS User Setup Steps:**
+(Since neither the drawing component nor the text-to-speech componenet are funtional yet, these instructions are not needed in this version of Fabulist.  Will become relevant again when we need to store static files.)
+
+Users will need to add these fields to the '.env' file:
+```
+AWS_SECRET_ACCESS_KEY=??????????????????????????????????????????
+AWS_ACCESS_KEY_ID=?????????????????
+S3BUCKET=fabulist-images (or your bucket name if different)
+```
+
+(These instructions are modified from fishcharlie's instructions here: [ExpressFileUploadS3Example](https://github.com/fishcharlie/ExpressFileUploadS3Example)) 
+1.  Create an [Amazon Web Services (AWS)](https://aws.amazon.com) account.
+2.  Once at the main AWS dashboard search for the `IAM` service or scroll down to find the `IAM` service and select that.
+3.  On the left panel of the `IAM` service select `Users`.
+4.  Click `Add user` at the top of the screen.
+5.  Enter a `User name` in the text field. This can be anything (ex. `webuser`, `s3user`, `appkey`, etc.)
+6.  Click the check box next to `Programmatic access`.
+7.  Click `Next: Permissions`.
+8.  Select `Attach existing policies directly`.
+9.  In the search field right below that type in `S3`.
+10. Click on the check box next to `AmazonS3FullAccess`.
+11. Scroll down and click on the `Next: Review` button.
+12. Click `Create user`.
+13. This will display a table with your `Access key ID` and `Secret access key`. You will need to click the `Show` button to view your `Secret access key`. **!!! Important: this is the *only* time you will be able to see your secret access key without regenerating it, so please be sure to save it somewhere secure. !!!**
+
+
+
+**AWS S3 Bucket Creation:**
+
+1.  Go to the main AWS dashboard.
+2.  Search for or scroll down to select `S3`.
+3.  Click `Create bucket`.
+4.  Give your bucket a unique name. The default is 'fabulist-images'.
+5.  Select the region you wish to store your bucket data in.
+6.  Click `Next`.
+7.  The next panel allows you to set custom properties for your bucket. For now we will use the default settings so click `Next`.
+8.  Under the drop down for `Manage public permissions` select `Not Public`.
+9.  Click `Next`.
+10. Click `Create bucket`.
+
+For more information about setting up AWS S3, go [here](https://aws.amazon.com/documentation/s3/).<br><br>
+
 
 
 ## Copyright
