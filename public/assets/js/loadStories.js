@@ -50,7 +50,7 @@ $(document).ready(function() {
   }
 
   function getStories(category) {
-    console.log("running getStories");
+    // console.log("running getStories");
     var categoriyString = category || "";
     $.get("/api/stories?ordering=DESC", function(stories) {
 
@@ -73,6 +73,6 @@ $(document).on("click", ".story-card", function(event){
   var x = $(this).find(".story-body, .card-footer");
   var isHidden = x.css("display") === "none"
   // console.log(x.css("display"));
-  console.log(isHidden)
+  // console.log(isHidden)
   x.slideToggle();
 });
