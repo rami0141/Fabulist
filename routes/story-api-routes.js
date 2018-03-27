@@ -10,7 +10,7 @@ module.exports = function(app) {
     storiesOrdering = storiesOrdering === "ASC" || storiesOrdering === "DESC" ? storiesOrdering : defaultOrdering;
     db.Story.findAll({
       include: [db.Turn, db.Player],
-      order: [["updatedAt", storiesOrdering]]
+      order: [["id", storiesOrdering], ["Turns", "sequence", "ASC"]]
     }).then(function(stories) {
       res.json(stories)
     });

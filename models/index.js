@@ -11,11 +11,9 @@ const mysql_pwd = process.env.MYSQL_PASSWORD || config.password;
 const mysql_user = process.env.MYSQL_USERNAME || config.username;
 var db        = {};
 
-console.log(process.env);
 if (process.env.JAWSDB_URL) {
-  connection == mysql.createConnection(process.env.JAWSDB_URL);
-}
-else if (config.use_env_variable) {
+  var sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
   var sequelize = new Sequelize(config.database, mysql_user, mysql_pwd, config);
